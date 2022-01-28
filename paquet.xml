@@ -19,5 +19,6 @@
 	<necessite nom="suivant_precedent" compatibilite="[2.0.0;[" />
 	<necessite nom="gis" compatibilite="[4.51.1;[" />
 	<necessite nom="offline" compatibilite="[1.0.0;[" />
+	<necessite nom="couleur_objet" compatibilite="[0.6.2;[" />
 
 </paquet>
