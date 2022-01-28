@@ -1,0 +1,20 @@
+<BOUCLE_resume_rubrique(RUBRIQUES){id_rubrique}>
+<article class="entry rubrique hentry">
+	[<div class="banner">
+		<a href="#URL_RUBRIQUE" rel="bookmark">
+			(#LOGO_RUBRIQUE
+				|image_recadre{1.86:1,-,focus}
+				|image_reduire{680}
+				|vider_attribut{class}
+				|sinon{#CHEMIN{images/nologo.svg}|balise_svg{'',default,297}})
+		</a>
+	</div>]
+	<div class="details">
+		<strong class="h3 entry-title"><a href="#URL_RUBRIQUE" rel="bookmark">#TITRE</a></strong>
+		[<div class="introduction entry-content">(#TEXTE|couper{#ENV{coupe,150}})</div>]
+		<div class="actions">
+			[(#BOUTON_TELECHARGER_OFFLINE{rubrique,#ID_RUBRIQUE})]
+		</div>
+	</div>
+</article>
+</BOUCLE_resume_rubrique>

@@ -1,0 +1,17 @@
+<BOUCLE_resume_article(ARTICLES){id_article}{statut?}>
+<article class="entry article hentry">
+	[<div class="banner">
+		<a href="#URL_ARTICLE" rel="bookmark">
+			(#LOGO_ARTICLE
+				|image_recadre{1.86:1,-,focus}
+				|image_reduire{680}
+				|vider_attribut{class}
+				|sinon{#CHEMIN{images/nologo.svg}|balise_svg{'',default,198}})
+		</a>
+	</div>]
+	<div class="details">
+		<strong class="h3 entry-title"><a href="#URL_ARTICLE" rel="bookmark"><span class="rang">\[#RANG\] </span>#TITRE</a></strong>
+		[<div class="introduction entry-content">(#TEXTE|couper{#ENV{coupe,150}})</div>]
+	</div>
+</article>
+</BOUCLE_resume_article>

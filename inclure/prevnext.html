@@ -1,0 +1,16 @@
+<BOUCLE_prevnext(ARTICLES){id_article}>
+<nav role="navigation" class="prevnext pagination">
+	<ul class="container pagination-items">
+		<BOUCLE_precedent(ARTICLES){id_rubrique}{par num titre, titre}{precedent}>
+		<li class="pagination-item prev"><a class="pagination-item-label" href="#URL_ARTICLE"><:zcore:pagination_prev:></a></li>
+		</BOUCLE_precedent>
+		<li class="pagination-item prev disabled"><span class="pagination-item-label"><:zcore:pagination_prev:></span></li>
+		<//B_precedent>
+		<BOUCLE_suivant (ARTICLES) {id_rubrique} {par num titre} {suivant}>
+		<li class="pagination-item next"><a class="pagination-item-label" href="#URL_ARTICLE"><:zcore:pagination_next:></a></li>
+		</BOUCLE_suivant>
+		<li class="pagination-item next disabled"><span class="pagination-item-label"><:zcore:pagination_next:></span></li>
+		<//B_suivant>
+	</ul>
+</nav>
+</BOUCLE_prevnext>

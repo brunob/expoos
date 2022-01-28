@@ -1,0 +1,22 @@
+<B_rubriques>
+	#ANCRE_PAGINATION
+	<ul class="cards[ (#ENV{class_liste})]">
+		<BOUCLE_rubriques(RUBRIQUES){id_parent=#ENV{id_rubrique}}{par num titre, titre}{pagination #ENV{pagination,12}}>
+		<li class="card">
+			<INCLURE{fond=inclure/resume/#ENV{resume,rubrique},id_rubrique}>
+		</li>
+		</BOUCLE_rubriques>
+	</ul>
+	[(#ENV{masquer_pagination}|!={oui}|oui)
+	[<nav role="navigation" class="pagination">
+		(#PAGINATION{
+			#ENV{modele_pagination,page_precedent_suivant},
+			label_precedent=#ENV{label_precedent,<:zcore:pagination_prev:>},
+			label_suivant=#ENV{label_suivant,<:zcore:pagination_next:>}
+		})
+	</nav>]
+	]
+</B_rubriques>
+[(#SET{message_aucun, [(#ENV{message_aucun}|is_null|?{<:info_aucun_rubrique:>, #ENV{message_aucun}})]})]
+[<p class="aucun-resultat">(#GET{message_aucun})</p>]
+<//B_rubriques>

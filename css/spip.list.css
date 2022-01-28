@@ -1,0 +1,37 @@
+/* ------------------------------------------
+/* Sous-navigation et autres menus
+/* ------------------------------------------ */
+
+/* Habillage general des menus de navigation */
+.menu { clear: both; margin-bottom: 1.5em; text-align: left; }
+.menu > h1,
+.menu > h2,
+.menu > h3,
+.menu > h4,
+.menu > h5,
+.menu > h6 { margin-bottom: 0; }
+
+/* nav principale */
+.nav .menu { margin: 0; }
+.nav .menu-items { margin: 0; padding: 0; list-style: none; }
+.nav .menu-items .item { margin: 0; }
+
+/* Listes d'items */
+.liste { margin-bottom: 1.5em; }
+.cards { margin: 0; padding: 0; list-style: none; border-bottom: 0; margin-bottom: 1.5em; }
+.liste .cards { margin-bottom: 0; }
+.cards .card { overflow: hidden; }
+.cards .card .h3 { margin-bottom: 0.5em; }
+.cards .card .h3 a:hover { text-decoration: none; }
+
+.liste-items .item ul { margin-left: 2em; list-style-type: disc; }
+.liste-items .item ol { margin-left: 2em; list-style-type: numeric; }
+
+/* Listes spécifiques */
+
+.breadcrumb-items { margin: 0; list-style: none; }
+.breadcrumb-items .item { display: inline; }
+
+/* plan du site */
+ul.plan { margin-bottom: 1.5em; }
+ul.plan li { margin-left: 2em; list-style-type: disc; }

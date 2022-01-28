@@ -1,0 +1,7 @@
+<composition>
+	<nom>Rubrique Expos</nom>
+	<description>Composition adaptée pour une collection d'expos.</description>
+	<icon>images/objet-simple.png</icon>
+	<branche type="rubrique" composition="expo" />
+	<branche type="article" composition="expo" />
+</composition>
