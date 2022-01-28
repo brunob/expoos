@@ -141,6 +141,10 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .card .rang { opacity: 0.4; font-size: 70%; float: right; margin: 0 0 0.5em 0.5em; }
 .card .details .actions { margin-top: 1em; }
 
+.card.numero { text-align: center; }
+.card.numero .h3 { margin: 0; font-size: 3em; }
+.card.numero a { display: block; padding: 1em 0; }
+
 .has-gutter-xl .card { margin-bottom: 4rem; }
 
 .offline-download { float: none !important; margin: 0 !important; }
