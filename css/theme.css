@@ -129,8 +129,9 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 /* ------------------------------------------ */
 
 /* components */
-.card { margin-bottom: 2.5rem; border-radius: 0.5rem; box-shadow: 0 0 10px rgba(0,0,0,0.15); transition: box-shadow 0.2s ease-out; }
-.card:hover { box-shadow: 0 7px 13px rgba(0,0,0,0.2); }
+.card { margin-bottom: 2.5rem; }
+.has-gutter-xl .card { margin-bottom: 4rem; }
+
 .card .banner { background: #bdbdbd; }
 .card .banner a { color: #fff; }
 .card .banner img,
@@ -141,11 +142,16 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .card .rang { opacity: 0.4; font-size: 70%; float: right; margin: 0 0 0.5em 0.5em; }
 .card .details .actions { margin-top: 1em; }
 
+.card.default { border-radius: 0.5rem; box-shadow: 0 0 10px rgba(0,0,0,0.15); transition: box-shadow 0.2s ease-out; }
+.card.default:hover { box-shadow: 0 7px 13px rgba(0,0,0,0.2); }
+.card.default .entry-title { margin-bottom: 0.5em; }
+
 .card.numero { text-align: center; }
-.card.numero .h3 { margin: 0; font-size: 3em; }
+.card.numero .entry-title { font-size: 3em; }
 .card.numero a { display: block; padding: 1em 0; }
 
-.has-gutter-xl .card { margin-bottom: 4rem; }
+.card.carre .banner { margin-bottom: 0.5em; }
+.card.carre .entry-title { font-size: 0.725em; }
 
 .offline-download { float: none !important; margin: 0 !important; }
 .offline-download .btn { margin: 0 auto !important; }

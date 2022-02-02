@@ -2,7 +2,7 @@
 	#ANCRE_PAGINATION
 	<ul class="cards[ (#ENV{class_liste})]">
 		<BOUCLE_rubriques(RUBRIQUES){id_parent=#ENV{id_rubrique}}{par num titre, titre}{pagination #ENV{pagination,12}}>
-		<li class="card">
+		<li class="card default">
 			<INCLURE{fond=inclure/resume/#ENV{resume,rubrique},id_rubrique}>
 		</li>
 		</BOUCLE_rubriques>
