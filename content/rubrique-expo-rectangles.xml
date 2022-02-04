@@ -1,0 +1,6 @@
+<composition>
+	<nom>Rubrique Expo - Rectangles</nom>
+	<description>Composition adaptée pour une expo de visuels affichées sous forme de rectangles.</description>
+	<icon>images/objet-simple.png</icon>
+	<branche type="article" composition="expo" />
+</composition>

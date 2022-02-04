@@ -150,8 +150,8 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .card.numero .entry-title { font-size: 3em; }
 .card.numero a { display: block; padding: 1em 0; }
 
-.card.carre .banner { margin-bottom: 0.5em; }
-.card.carre .entry-title { font-size: 0.725em; }
+.card:where(.carre,.rectangle) .banner { margin-bottom: 0.5em; }
+.card:where(.carre,.rectangle) .entry-title { font-size: 0.725em; }
 
 .offline-download { float: none !important; margin: 0 !important; }
 .offline-download .btn { margin: 0 auto !important; }
