@@ -8,9 +8,9 @@
 	<div class="main">
 		[<div class="#EDIT{texte} chapo">(#TEXTE|adaptive_images)</div>]
 
-		<div class="liste articles">
+		<div class="liste articles">[(#SET{class,grid-[(#COLONNES|sinon{6})]-small-[(#COLONNES|sinon{6}|div{2}|intval)] has-gutter-l})]
 			<INCLURE{fond=inclure/liste/articles,env,ajax,
-				class_liste='grid-6-small-3 has-gutter-l',
+				class_liste=#GET{class},
 				resume=article-carre}>
 		</div>
 	</div>
