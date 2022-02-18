@@ -1,3 +1,20 @@
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 400;
+	src:local(''),
+		url('polices/open-sans-v27-latin-regular.woff2') format('woff2'),
+		url('polices/open-sans-v27-latin-regular.woff') format('woff');
+}
+@font-face {
+	font-family: 'Open Sans';
+	font-style: normal;
+	font-weight: 700;
+	src:local(''),
+		url('polices/open-sans-v27-latin-700.woff2') format('woff2'),
+		url('polices/open-sans-v27-latin-700.woff') format('woff');
+}
+:root { --font-base: "Open Sans", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
 :root { --font-titres: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
 :root { --font-corps: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
 body { font-family: var(--font-corps); color: #111; }
