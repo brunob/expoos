@@ -164,7 +164,7 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 /* variantes */
 .article_expo .content { margin-top: 0; }
 .article_expo .prevnext { background: #111; }
-.article_expo .prevnext .pagination-items { margin-bottom: 0; justify-content: space-around; }
+.article_expo .prevnext .pagination-items { margin-bottom: 0; justify-content: space-around; font-family: var(--font-base); }
 .article_expo .prevnext .pagination-items a,
 .article_expo .prevnext .pagination-items a:hover { color: #fff; }
 .article_expo .content .container { max-width: 680px; }

@@ -4,3 +4,8 @@ spip_rubriques:
     verifier: { type: entier, options: { min: '2', max: '12' } }
     identifiant: '@61fd0aeb3673c'
     saisie: input
+  -
+    options: { nom: typos, label: Typos, datas: "vollkorn_opensans|Vollkorn & Open Sans\r\nfraunces_commissioner|Fraunces & Commissioner\r\nworksans|Work Sans", restrictions: { secteurs: '', branches: '', voir: { auteur: '' }, modifier: { auteur: '' } }, sql: 'text DEFAULT '''' NOT NULL' }
+    identifiant: '@620fa663f01d7'
+    verifier: {  }
+    saisie: selection
