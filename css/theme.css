@@ -152,7 +152,9 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .card.numero a { display: block; padding: 1em 0; }
 
 .card:where(.carre,.rectangle,.portrait) .banner { margin-bottom: 0.5em; }
-.card:where(.carre,.rectangle,.portrait) .entry-title { font-size: 0.725em; }
+@media (min-width:576px){
+	.card:where(.carre,.rectangle,.portrait) .entry-title { font-size: 0.725em; }
+}
 .card:where(.carre,.rectangle,.portrait) .objet_type { font-size: 0.625em; }
 
 .offline-download { float: none !important; margin: 0 !important; }
