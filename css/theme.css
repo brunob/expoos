@@ -28,9 +28,9 @@ body { background: #fff; font-size: 120%; }
 .header .accueil a,
 .header .accueil a:hover { color: #fff; text-decoration: none; }
 @media (max-width: 576px) {
-    .header .container { justify-content: space-around; }
-    .header .accueil .spip_logo { display: block; margin: 0 auto 0.5em; }
-    .header .accueil #nom_site_spip { display: block; text-align: center; }
+	.header .container { justify-content: space-around; }
+	.header .accueil .spip_logo { display: block; margin: 0 auto 0.5em; }
+	.header .accueil #nom_site_spip { display: block; text-align: center; }
 }
 
 .nav .menu-items { margin: 0; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--font-base); }
@@ -44,9 +44,9 @@ body { background: #fff; font-size: 120%; }
 .toggle-picto { font-size: 1.5em; }
 .toggle-text { font-size: 1.25em; }
 @media (max-width: 576px) {
-    .toggle-picto { font-size: 2em; }
-    .toggle-text { display: none; }
-    #nav-toggle-label { position: absolute; top: 0; right: 1em; }
+	.toggle-picto { font-size: 2em; }
+	.toggle-text { display: none; }
+	#nav-toggle-label { position: absolute; top: 0; right: 1em; }
 }
 #nav .menu { position: fixed; left: 0; right: 0; height: 100%; overflow-y: auto; overscroll-behavior-y: contain; background: #111; z-index: 1999; }
 
@@ -110,7 +110,7 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 
 #container { max-width: 680px; font-size: 1.125em; }
 @media (max-width: 576px) {
-    #container { font-size: 1em; }
+	#container { font-size: 1em; }
 }
 #container.fullwidth { max-width: none; width: 100%; }
 
