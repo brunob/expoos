@@ -1,0 +1,4 @@
+<BOUCLE_rub(RUBRIQUES){id_rubrique}>[(#SET{couleur,#COULEUR})]</BOUCLE_rub>
+<BOUCLE_type(MOTS){id_groupe=#CONFIG{expoos/groupe_types,1}}{id_article}>
+<span class="objet_type" style="background-color: [(#GET{couleur}|sinon{#bdbdbd})]; color: [#(#GET{couleur}|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser)];">#TITRE</span>
+</BOUCLE_type>
