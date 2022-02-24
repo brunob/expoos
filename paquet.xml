@@ -21,5 +21,8 @@
 	<necessite nom="offline" compatibilite="[1.0.0;[" />
 	<necessite nom="couleur_objet" compatibilite="[0.6.2;[" />
 	<necessite nom="iextras" compatibilite="[4.0.0;[" />
+	<necessite nom="oembed" compatibilite="[2.4.0;[" />
+
+	<pipeline nom="oembed_lister_providers" inclure="expoos_pipelines.php" />
 
 </paquet>
