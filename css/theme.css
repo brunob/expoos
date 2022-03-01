@@ -171,11 +171,14 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 
 /* variantes */
 .article_expo .content { margin-top: 0; }
-.article_expo .prevnext { background: #111; }
-.article_expo .prevnext .pagination-items { margin-bottom: 0; justify-content: space-around; font-family: var(--font-base); }
-.article_expo .prevnext .pagination-item { flex-basis: auto; }
-.article_expo .prevnext .pagination-items a,
-.article_expo .prevnext .pagination-items a:hover { color: #fff; }
+.article_expo .subnav { background: #111; }
+.article_expo .subnav .h2 { margin-bottom: 0.5em; }
+.article_expo .subnav .pagination-items { margin-bottom: 0; justify-content: space-around; font-family: var(--font-base); }
+.article_expo .subnav .pagination-item { flex-basis: auto; }
+.article_expo .subnav .h2 a,
+.article_expo .subnav .pagination-items a,
+.article_expo .subnav .pagination-items a:hover { color: #fff; }
+.article_expo .subnav .h2 a:hover { text-decoration: none; }
 .article_expo .content .container { max-width: 680px; }
 .article_expo .logo_full { margin-bottom: 1em; }
 .article_expo .postmeta .traductions { display: block; }
