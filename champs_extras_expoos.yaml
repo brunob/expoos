@@ -14,3 +14,8 @@ spip_rubriques:
     identifiant: '@620fa663f01d7'
     verifier: {  }
     saisie: selection
+  -
+    options: { nom: carto, label: Carto, label_case: 'Exposition cartographiée', valeur_oui: on, restrictions: { secteurs: '', branches: '', voir: { auteur: '' }, modifier: { auteur: '' } }, sql: 'varchar(3) DEFAULT '''' NOT NULL' }
+    identifiant: '@621f6e2edfcd6'
+    verifier: {  }
+    saisie: case

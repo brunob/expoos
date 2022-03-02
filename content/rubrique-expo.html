@@ -7,9 +7,16 @@
 
 	<div class="main">
 		[<div class="#EDIT{texte} chapo">(#TEXTE|adaptive_images)</div>]
+
 		<BOUCLE_origine(RUBRIQUES){traduction}{origine_traduction}>
-		[(#SET{class,grid-[(#COLONNES|sinon{3})]-small-[(#COLONNES|sinon{3}|div{2}|intval)] has-gutter-l})][(#SET{resume,[article-(#VARIANTE)]})]
+		[(#SET{class,grid-[(#COLONNES|sinon{3})]-small-[(#COLONNES|sinon{3}|div{2}|intval)] has-gutter-l})][
+		(#SET{resume,[article-(#VARIANTE)]})][
+		(#SET{carto,#CARTO})]
 		</BOUCLE_origine>
+
+		[(#GET{carto}|oui)
+		<INCLURE{fond=inclure/rubrique-carto,id_rubrique}>]
+
 		<div class="liste articles">
 			<INCLURE{fond=inclure/liste/articles,env,ajax,
 				class_liste=#GET{class},

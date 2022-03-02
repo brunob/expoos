@@ -165,11 +165,16 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 
 .objet_type { display: inline-block; padding: 0.25em 0.5em; font-weight: bold; font-family: var(--font-base); line-height: 1; }
 
+.marker-dot div { background-color: #fc3f93; color: #fff; width: 20px; height: 20px; margin-left: 8px; margin-top: 8px; text-align: center; border: 3px solid #fff; border-radius: 13px; font: bold 11px "Helvetica Neue", Arial, Helvetica, sans-serif; }
+.marker-dot span { line-height: 34px }
+
 /* layout */
 .page_sommaire #container,
 .page_rubrique #container { max-width: none; }
 
 /* variantes */
+#map_expo { margin-bottom: 3em; }
+
 .article_expo .content { margin-top: 0; }
 .article_expo .subnav { background: #111; }
 .article_expo .subnav .h2 { margin-bottom: 0.5em; }
