@@ -1,6 +1,0 @@
-<composition>
-	<nom>Rubrique Expo - Portraits</nom>
-	<description>Composition adaptée pour une expo de visuels affichées sous forme de portraits.</description>
-	<icon>images/objet-simple.png</icon>
-	<branche type="article" composition="expo" />
-</composition>

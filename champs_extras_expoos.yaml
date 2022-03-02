@@ -1,5 +1,10 @@
 spip_rubriques:
   -
+    options: { nom: variante, label: Variante, datas: "carre|Carrés\r\nnumero|Numéros\r\nportrait|Portraits\r\nrectangle|Rectangles", restrictions: { secteurs: '', branches: '', voir: { auteur: '' }, modifier: { auteur: '' } }, sql: 'text DEFAULT '''' NOT NULL' }
+    identifiant: '@621f689436baa'
+    verifier: {  }
+    saisie: selection
+  -
     options: { nom: colonnes, label: Colonnes, type: text, size: '40', autocomplete: defaut, restrictions: { secteurs: '', branches: '', voir: { auteur: '' }, modifier: { auteur: '' } }, sql: 'text DEFAULT '''' NOT NULL' }
     verifier: { type: entier, options: { min: '2', max: '12' } }
     identifiant: '@61fd0aeb3673c'
