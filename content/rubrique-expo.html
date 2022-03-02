@@ -7,8 +7,10 @@
 
 	<div class="main">
 		[<div class="#EDIT{texte} chapo">(#TEXTE|adaptive_images)</div>]
-
-		<div class="liste articles">[(#SET{class,grid-[(#COLONNES|sinon{3})]-small-[(#COLONNES|sinon{3}|div{2}|intval)] has-gutter-l})][(#SET{resume,[article-(#VARIANTE)]})]
+		<BOUCLE_origine(RUBRIQUES){traduction}{origine_traduction}>
+		[(#SET{class,grid-[(#COLONNES|sinon{3})]-small-[(#COLONNES|sinon{3}|div{2}|intval)] has-gutter-l})][(#SET{resume,[article-(#VARIANTE)]})]
+		</BOUCLE_origine>
+		<div class="liste articles">
 			<INCLURE{fond=inclure/liste/articles,env,ajax,
 				class_liste=#GET{class},
 				resume=#GET{resume}
