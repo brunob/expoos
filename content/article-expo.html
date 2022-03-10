@@ -1,5 +1,17 @@
 <BOUCLE_content(ARTICLES){id_article}>
 <article itemscope itemtype="http://schema.org/Article">
+	[(#INFO_CARTO{rubrique,#ID_RUBRIQUE}|oui)
+	<div class="subnav"><a href="#" id="toggle_map"><:expoos:carte_afficher:></a></div>
+	<script type="text/javascript">
+		;(function($){
+			$('#toggle_map').click(function(){
+				$(this).text($(this).text() == '<:expoos:carte_afficher|texte_script:>' ? '<:expoos:carte_masquer|texte_script:>' : '<:expoos:carte_afficher|texte_script:>');
+				$('#map_expo').slideToggle();
+				return false;
+			})
+		})(jQuery);
+	</script>
+	<INCLURE{fond=inclure/rubrique-carto,id_rubrique,id_article}>]
 	[(#LOGO_ARTICLE|image_recadre{1.86:1,-,focus}|image_reduire{1920}|inserer_attribut{itemprop,image}|inserer_attribut{class,logo_full})]
 	<div class="container">
 		<header class="cartouche">

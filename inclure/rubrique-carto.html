@@ -4,6 +4,7 @@
 	objets=expo,
 	control_type=non,
 	fullscreen=oui}>
+[(#SET{lat,#LAT})][(#SET{lon,#LON})]
 <BOUCLE_svg(DOCUMENTS){id_rubrique}{extension=svg}{0,1}>
 [(#FICHIER|balise_svg)]
 <script type="text/javascript">
@@ -21,10 +22,16 @@
 			}
 		});
 		$('#map_expo').on('ready', function(){
-			// afficher le SVG du plan en overlay et centrer la carte sur ses bounds
+			// afficher le SVG du plan en overlay
 			var svgElement = document.querySelector('#plan'),
 			bounds = L.latLngBounds(eval(svgElement.getAttribute('data-bbox')));
+			<BOUCLE_center(GIS){id_article}{1,1}>
+			this.map.setView(\[[(#LAT)],[(#LON)]\],20);
+			$('#map_expo').hide();
+			</BOUCLE_center>
+			// centrer la carte sur les bounds du SVG
 			this.map.fitBounds(bounds);
+			<//B_center>
 			L.svgOverlay(svgElement, bounds).addTo(this.map);
 		});
 })(jQuery);
