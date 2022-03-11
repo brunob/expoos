@@ -3,15 +3,25 @@
 	[<div class="container"><h2 class="h2"><a href="#URL_RUBRIQUE">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a></h2></div>]
 	<ul class="container pagination-items">
 		<BOUCLE_precedent(ARTICLES){id_rubrique}{par num titre, titre}{precedent}>
-		<li class="pagination-item prev"><a class="pagination-item-label" href="#URL_ARTICLE"><:zcore:pagination_prev:></a></li>
+		<li class="pagination-item prev"><a class="pagination-item-label" id="article_precedent" href="#URL_ARTICLE"><:zcore:pagination_prev:></a></li>
 		</BOUCLE_precedent>
 		<li class="pagination-item prev disabled"><span class="pagination-item-label"><:zcore:pagination_prev:></span></li>
 		<//B_precedent>
 		<BOUCLE_suivant (ARTICLES) {id_rubrique} {par num titre} {suivant}>
-		<li class="pagination-item next"><a class="pagination-item-label" href="#URL_ARTICLE"><:zcore:pagination_next:></a></li>
+		<li class="pagination-item next"><a class="pagination-item-label" id="article_suivant" href="#URL_ARTICLE"><:zcore:pagination_next:></a></li>
 		</BOUCLE_suivant>
 		<li class="pagination-item next disabled"><span class="pagination-item-label"><:zcore:pagination_next:></span></li>
 		<//B_suivant>
 	</ul>
 </nav>
 </BOUCLE_prevnext>
+<script type="text/javascript">
+document.addEventListener('swiped', function(e) {
+	if (e.detail.dir == 'left') {
+		document.getElementById('article_suivant').click();
+	}
+	if (e.detail.dir == 'right') {
+		document.getElementById('article_precedent').click();
+	}
+});
+</script>

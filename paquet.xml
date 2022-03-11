@@ -27,4 +27,6 @@
 	<pipeline nom="quete_logo_objet" inclure="expoos_pipelines.php" />
 	<pipeline nom="oembed_lister_providers" inclure="expoos_pipelines.php" />
 
+	<script source="javascript/swiped-events.min.js" type="public" />
+
 </paquet>
