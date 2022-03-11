@@ -9,6 +9,8 @@
 [(#FICHIER|balise_svg)]
 <script type="text/javascript">
 	;(function($){
+		// ignorer les swipe events sur la carte
+		$('#map_expo').attr('data-swipe-ignore','true');
 		$('#map_expo').on('load', function(){
 			// pictos perso pour les markers
 			this.map.setGeoJsonFeatureIcon = function(feature, layer) {
