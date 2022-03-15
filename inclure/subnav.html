@@ -16,12 +16,14 @@
 </nav>
 </BOUCLE_prevnext>
 <script type="text/javascript">
-document.addEventListener('swiped', function(e) {
-	if (e.detail.dir == 'left') {
-		document.getElementById('article_suivant').click();
-	}
-	if (e.detail.dir == 'right') {
-		document.getElementById('article_precedent').click();
-	}
-});
+window.onload = function() {
+	document.getElementById('media_expo').addEventListener('swiped', function(e) {
+		if (e.detail.dir == 'left') {
+			document.getElementById('article_suivant').click();
+		}
+		if (e.detail.dir == 'right') {
+			document.getElementById('article_precedent').click();
+		}
+	});
+};
 </script>
