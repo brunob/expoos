@@ -7,6 +7,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	'carte_afficher' => 'Afficher la carte',
-	'carte_masquer' => 'Masquer la carte'
+	'carte_masquer' => 'Masquer la carte',
+
+	'titre_annexes' => 'À propos',
 
 );

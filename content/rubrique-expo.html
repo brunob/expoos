@@ -23,6 +23,20 @@
 				resume=#GET{resume}
 			}>
 		</div>
+
+		<B_articles>
+		<div class="liste articles annexes">
+			<h2><:expoos:titre_annexes:></h2>
+			<ul class="liste-items">
+				<BOUCLE_articles(ARTICLES){id_rubrique?}{par num titre, titre}{annexe=on}>
+				<li class="item">
+					<a href="#URL_ARTICLE">#TITRE</a>
+				</li>
+				</BOUCLE_articles>
+			</ul>
+		</div>
+		</B_articles>
+		
 	</div>
 
 	<aside>
