@@ -37,3 +37,62 @@ function expoos_quete_logo_objet($flux) {
 	}
 	return $flux;
 }
+
+
+/**
+ * Insertion dans le pipeline pre_boucle (SPIP)
+ * Pour les listes d'articles, il faut exclure les articles annexes
+ *
+ * @param array $flux
+ * 		Le contexte du pipeline
+ * @return array $flux
+ * 		Le contexte modifié
+ */
+function expoos_pre_boucle($boucle) {
+	// On ne s'intéresse qu'à la boucle ARTICLES
+	if ($boucle->type_requete == 'articles' and empty($boucle->modificateur['tout'])) {
+		// On n'insère le filtre {annexe=''} pour exclure les annexes que si aucune des conditions
+		// suivantes n'est vérifiée:
+		// - pas de critère annexe autre que {annexe=''}
+		// pas de critère {id_article=XX} ou {id_article} ou {id_article?}
+		$boucle_articles = true;
+
+		// On cherche les critères id_rubrique, id_article ou annexe
+		foreach ($boucle->criteres as $_critere) {
+			// Aucun filtre du tout quand on cherche des traductions
+			if ($_critere->op == 'traduction' or $_critere->op == 'origine_traduction') {
+				$boucle_articles = false;
+				break;
+			}
+			elseif (isset($_critere->param[0][0]->texte) and $_critere->param[0][0]->texte == 'annexe') { // {annexe=x}
+				if (
+					($_critere->op == '=')
+					and ($_critere->param[1][0]->texte == '')
+					and empty($_critere->param[1][1])
+					or $_critere->not
+				) {
+					// On veut exclure explicitement les annexes
+					break;
+				} else {
+					// on désigne bien des annexes par leur champ 'annexe'
+					$boucle_articles = false;
+					break;
+				}
+			}
+			elseif (($_critere->op == 'id_article') // {id_article} ou {id_article?}
+				or (isset($_critere->param[0][0]->texte) and $_critere->param[0][0]->texte == 'id_article')) { // {id_article=x}
+				// On pointe sur un article précis, il est donc inutile de rajouter un test sur la rubrique
+				// Pour le critère {id_article?} on considère que pour sélectionner des annexes uniques
+				// ou des articles éditoriaux on doit préciser le critère {id_rubrique}
+				$boucle_articles = false;
+			}
+		}
+
+		// Si on est en présence d'une boucle article purement éditoriale, on ajoute le filtre annexe=''
+		if ($boucle_articles) {
+			$boucle->where[] = array("'='", "'articles.annexe'", "'\"\"'");
+		}
+	}
+
+	return $boucle;
+}

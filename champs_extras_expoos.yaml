@@ -1,3 +1,9 @@
+spip_articles:
+  -
+    options: { nom: annexe, label: Annexe, label_case: 'Article annexe', valeur_oui: on, restrictions: { secteurs: '', branches: '', voir: { auteur: '' }, modifier: { auteur: '' } }, sql: 'varchar(3) DEFAULT '''' NOT NULL' }
+    identifiant: '@621f7e76b0d92'
+    verifier: {  }
+    saisie: case
 spip_rubriques:
   -
     options: { nom: variante, label: Variante, datas: "carre|Carrés\r\nnumero|Numéros\r\nportrait|Portraits\r\nrectangle|Rectangles", restrictions: { secteurs: '', branches: '', voir: { auteur: '' }, modifier: { auteur: '' } }, sql: 'text DEFAULT '''' NOT NULL' }
