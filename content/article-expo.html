@@ -1,6 +1,6 @@
 <BOUCLE_content(ARTICLES){id_article}>
 <article itemscope itemtype="http://schema.org/Article">
-	[(#INFO_CARTO{rubrique,#ID_RUBRIQUE}|oui)
+	[(#INFO_CARTO{rubrique,#ID_RUBRIQUE}|et{#ANNEXE|=={''}}|oui)
 	<div class="subnav"><a href="#" id="toggle_map"><:expoos:carte_afficher:></a></div>
 	<script type="text/javascript">
 		;(function($){
