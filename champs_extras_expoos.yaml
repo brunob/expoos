@@ -25,3 +25,9 @@ spip_rubriques:
     identifiant: '@621f6e2edfcd6'
     verifier: {  }
     saisie: case
+spip_gis:
+  -
+    options: { nom: annexe, label: Annexe, label_case: 'Point annexe', valeur_oui: on, restrictions: { voir: { auteur: '' }, modifier: { auteur: '' } }, sql: 'varchar(3) DEFAULT '''' NOT NULL' }
+    identifiant: '@6230708558c7b'
+    verifier: {  }
+    saisie: case
