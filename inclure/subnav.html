@@ -1,15 +1,17 @@
 <BOUCLE_prevnext(ARTICLES){id_article}>
 <nav role="navigation" class="subnav pagination">
-	<ul class="container pagination-items">
+	<ul class="pagination-items">
 		<BOUCLE_precedent(ARTICLES){id_rubrique}{par num titre, titre}{precedent}>
-		<li class="pagination-item prev"><a class="pagination-item-label" id="article_precedent" href="#URL_ARTICLE"><:zcore:pagination_prev:></a></li>
+		<li class="pagination-item prev"><a class="pagination-item-label" id="article_precedent" href="#URL_ARTICLE">[(#CHEMIN{images/prev.svg}|balise_svg{<:zcore:pagination_prev:>,28})]</a></li>
 		</BOUCLE_precedent>
-		<li class="pagination-item prev disabled"><span class="pagination-item-label"><:zcore:pagination_prev:></span></li>
+		<li class="pagination-item prev disabled"><span class="pagination-item-label">[(#CHEMIN{images/prev.svg}|balise_svg{<:zcore:pagination_prev:>,28})]</span></li>
 		<//B_precedent>
+		[(#INFO_CARTO{rubrique,#ID_RUBRIQUE}|et{#ANNEXE|=={''}}|oui)
+		<li class="pagination-item"><a class="pagination-item-label" href="#" id="toggle_map" title="<:expoos:carte_afficher|texte_script:>">[(#CHEMIN{images/map.svg}|balise_svg{28})]</a></li>]
 		<BOUCLE_suivant (ARTICLES) {id_rubrique} {par num titre} {suivant}>
-		<li class="pagination-item next"><a class="pagination-item-label" id="article_suivant" href="#URL_ARTICLE"><:zcore:pagination_next:></a></li>
+		<li class="pagination-item next"><a class="pagination-item-label" id="article_suivant" href="#URL_ARTICLE">[(#CHEMIN{images/next.svg}|balise_svg{<:zcore:pagination_next:>,28})]</a></li>
 		</BOUCLE_suivant>
-		<li class="pagination-item next disabled"><span class="pagination-item-label"><:zcore:pagination_next:></span></li>
+		<li class="pagination-item next disabled"><span class="pagination-item-label">[(#CHEMIN{images/next.svg}|balise_svg{<:zcore:pagination_next:>,28})]</span></li>
 		<//B_suivant>
 	</ul>
 </nav>

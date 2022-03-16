@@ -23,12 +23,14 @@ body { background: #fff; font-size: 120%; }
 
 .header { margin: 0; padding : 1.5em 0; position: relative; background: #111; box-shadow: 0 6px 6px -6px rgba(0,0,0,0.2); }
 .header .container { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; }
+.header .accueil { flex-grow: 1; }
 .header .accueil .spip_logo { float: none; margin: 0 0.25em 0 0; }
 .header .accueil #nom_site_spip { display: flex; align-items: center; margin-bottom: 0; font-size: 1.5em; font-family: var(--font-base); color: #fff; line-height: 1; }
 .header .accueil a,
 .header .accueil a:hover { color: #fff; text-decoration: none; }
-@media (max-width: 576px) {
-	.header .container { justify-content: space-around; }
+.header #nav-toggle-label { order: 1; }
+@media (max-width: 991px) {
+	.header .container { flex-direction: column; }
 	.header .accueil .spip_logo { display: block; margin: 0 auto 0.5em; }
 	.header .accueil #nom_site_spip { display: block; text-align: center; }
 }
@@ -43,7 +45,7 @@ body { background: #fff; font-size: 120%; }
 #nav-toggle:checked ~ .menu { top: 0; }
 .toggle-picto { font-size: 1.5em; }
 .toggle-text { font-size: 1.25em; }
-@media (max-width: 576px) {
+@media (max-width: 991px) {
 	.toggle-picto { font-size: 2em; }
 	.toggle-text { display: none; }
 	#nav-toggle-label { position: absolute; top: 0; right: 1em; }
@@ -176,11 +178,18 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .rubrique_expo #map_expo { margin-bottom: 3em; }
 
 .article_expo .content { margin-top: 0; }
-.article_expo .subnav { background: #111; text-align: center; }
+.article_expo .subnav { background: #111; text-align: center; line-height: 1; }
+@media (max-width: 991px) {
+	.article_expo .subnav { margin-top: 1.5em; }
+}
 .article_expo .subnav .pagination-items { margin-bottom: 0; justify-content: space-around; font-family: var(--font-base); }
 .article_expo .subnav .pagination-item { flex-basis: auto; }
+.article_expo .subnav .pagination-item-label { padding: 0 0.5em; }
+.article_expo .subnav .pagination-item-label svg { vertical-align: middle; }
 .article_expo .subnav a,
-.article_expo .subnav a:hover { color: #fff; }
+.article_expo .subnav a:focus,
+.article_expo .subnav a:hover,
+.article_expo .subnav a:active { color: #fff; }
 .article_expo .subnav .h2 a:hover { text-decoration: none; }
 .article_expo .content .container { max-width: 680px; }
 .article_expo .logo_full { margin-bottom: 1em; }

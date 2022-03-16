@@ -1,11 +1,10 @@
 <BOUCLE_content(ARTICLES){id_article}>
 <article itemscope itemtype="http://schema.org/Article">
 	[(#INFO_CARTO{rubrique,#ID_RUBRIQUE}|et{#ANNEXE|=={''}}|oui)
-	<div class="subnav"><a href="#" id="toggle_map"><:expoos:carte_afficher:></a></div>
 	<script type="text/javascript">
 		;(function($){
 			$('#toggle_map').click(function(){
-				$(this).text($(this).text() == '<:expoos:carte_afficher|texte_script:>' ? '<:expoos:carte_masquer|texte_script:>' : '<:expoos:carte_afficher|texte_script:>');
+				$(this).attr('title',$(this).attr('title') == '<:expoos:carte_afficher|texte_script:>' ? '<:expoos:carte_masquer|texte_script:>' : '<:expoos:carte_afficher|texte_script:>');
 				$('#map_expo').slideToggle();
 				return false;
 			})

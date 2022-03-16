@@ -5,9 +5,7 @@
 		</header>
 		<nav class="nav" id="nav">
 			<INCLURE{fond=inclure/nav,env} />
-		</nav>[(#SI_PAGE{article}|et{#ENV{composition}|=={expo}}|oui)
-			<INCLURE{fond=inclure/subnav,id_article} />
-		]<div class="container[(#SI_PAGE{article}|et{#ENV{composition}|=={expo}}|oui)fullwidth]" id="container">
+		</nav><div class="container[(#SI_PAGE{article}|et{#ENV{composition}|=={expo}}|oui)fullwidth]" id="container">
 			<main class="content" id="content" role="main"><INCLURE{fond=content/#ENV{type-page},env} />
 			</main>
 			[<aside class="extra secondary" id="extra" role="complementary">(#SI_PAGE{article}|et{#ENV{composition}|=={expo}}|non)
