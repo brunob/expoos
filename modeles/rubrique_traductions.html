@@ -1,0 +1,10 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<B_traductions>
+<span class="traductions">
+	<:info_traductions:> :
+	<BOUCLE_traductions(RUBRIQUES){traduction}{par lang}>[(#TOTAL_BOUCLE|>{1}|?{' '})
+	<span lang="#LANG" xml:lang="#LANG" dir="#LANG_DIR"[ class="(#EXPOSE)"]>&#91;[(#EXPOSE{'',<a href="#URL_RUBRIQUE" rel="alternate" hreflang="#LANG"[ title="(#TITRE|attribut_html|couper{80})"]>})][(#LANG|traduire_nom_langue)]#EXPOSE{'',</a>}&#93;</span>
+	]</BOUCLE_traductions>
+</span>
+</B_traductions>
+</BOUCLE_rubrique>
