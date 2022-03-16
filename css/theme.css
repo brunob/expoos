@@ -177,7 +177,6 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 
 .article_expo .content { margin-top: 0; }
 .article_expo .subnav { background: #111; text-align: center; }
-.article_expo .subnav .h2 { margin-bottom: 0.5em; }
 .article_expo .subnav .pagination-items { margin-bottom: 0; justify-content: space-around; font-family: var(--font-base); }
 .article_expo .subnav .pagination-item { flex-basis: auto; }
 .article_expo .subnav a,
