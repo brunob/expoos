@@ -1,0 +1,21 @@
+<div class="formulaire_spip formulaire_configurer formulaire_#FORM">
+
+[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+
+<form method="post" action="#ENV{action}">
+	<div>
+		#ACTION_FORMULAIRE{#ENV{action}}
+			<div class="editer-groupe">
+				[(#SAISIE{input,cle_mapquest,
+					label=<:expoos:cfg_label_cle_mapquest:>})]
+				[(#SAISIE{input,zoom_mapquest,
+					label=<:expoos:cfg_label_zoom_mapquest:>,
+					defaut=7})]
+			</div>
+			<p class="boutons">
+				<input type="submit" value="<:bouton_enregistrer:>" class="submit" />
+			</p>
+	</div>
+</form>
+</div>

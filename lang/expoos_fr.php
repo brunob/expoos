@@ -8,7 +8,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	'carte_afficher' => 'Afficher la carte',
 	'carte_masquer' => 'Masquer la carte',
+	'cfg_label_cle_mapquest' => 'Clé MapQuest',
+	'cfg_label_zoom_mapquest' => 'Zoom des cartes statiques',
+	'cfg_titre' => 'Configuration du plugin Expoos',
 
 	'titre_annexes' => 'À propos',
+	'titre_point_annexe' => 'Géolocalisation de la carrière',
 
 );
