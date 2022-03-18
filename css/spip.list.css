@@ -2,15 +2,6 @@
 /* Sous-navigation et autres menus
 /* ------------------------------------------ */
 
-/* Habillage general des menus de navigation */
-.menu { clear: both; margin-bottom: 1.5em; text-align: left; }
-.menu > h1,
-.menu > h2,
-.menu > h3,
-.menu > h4,
-.menu > h5,
-.menu > h6 { margin-bottom: 0; }
-
 /* Listes d'items */
 .liste { margin-bottom: 1.5em; }
 .cards { margin: 0; padding: 0; list-style: none; border-bottom: 0; margin-bottom: 1.5em; }
