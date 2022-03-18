@@ -27,7 +27,7 @@
 			[(#INFO_CARTO{rubrique,#ID_RUBRIQUE}|et{#ANNEXE|=={''}}|oui)
 			<BOUCLE_centrer(GIS){id_article}{annexe=on}>
 			<h2><:expoos:titre_point_annexe:></h2>
-			<img src="https://open.mapquestapi.com/staticmap/v4/getmap?key=#CONFIG{expoos/cle_mapquest}&center=#LAT,#LON&zoom=#CONFIG{expoos/zoom_mapquest,7}&xis=http://open.mapquestapi.com/staticmap/geticon?uri=pcenter.png,1,BC,#LAT,#LON&size=680,220&imageType=png&type=sat&scalebar=false" width="680" height="220" alt="" />
+			[(#ID_GIS|gis_static_map{680,220,cartodb_voyager,#CONFIG{expoos/zoom_mapquest,7}})]
 			</BOUCLE_centrer>]
 			[<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
 		</div>
