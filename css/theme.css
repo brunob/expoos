@@ -173,7 +173,6 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .article_expo .subnav a:focus,
 .article_expo .subnav a:hover,
 .article_expo .subnav a:active { color: #fff; }
-.article_expo .subnav .h2 a:hover { text-decoration: none; }
 .article_expo .content .container { max-width: 680px; }
 .article_expo .logo_full { margin-bottom: 1em; }
 .article_expo .postmeta .traductions { display: block; }
