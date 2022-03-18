@@ -1,6 +1,6 @@
-<BOUCLE_prevnext(ARTICLES){id_article}>
-<nav role="navigation" class="subnav pagination">
+<nav role="navigation" class="nav pagination" id="nav">
 	<ul class="pagination-items">
+	<BOUCLE_article(ARTICLES){id_article}>
 		<BOUCLE_precedent(ARTICLES){id_rubrique}{par num titre, titre}{precedent}>
 		<li class="pagination-item prev"><a class="pagination-item-label" id="article_precedent" href="#URL_ARTICLE">[(#CHEMIN{images/prev.svg}|balise_svg{<:zcore:pagination_prev:>,28})]</a></li>
 		</BOUCLE_precedent>
@@ -13,9 +13,10 @@
 		</BOUCLE_suivant>
 		<li class="pagination-item next disabled"><span class="pagination-item-label">[(#CHEMIN{images/next.svg}|balise_svg{<:zcore:pagination_next:>,28})]</span></li>
 		<//B_suivant>
+	</BOUCLE_article>
+		<li class="pagination-item"><a class="pagination-item-label" rel="start home" href="#URL_SITE_SPIP/" id="home">[(#CHEMIN{images/home.svg}|balise_svg{<:accueil_site:>,28})]</a></li>
 	</ul>
-</nav>
-</BOUCLE_prevnext>
+</nav>[(#ENV{page}|=={article}|oui)
 <script type="text/javascript">
 window.onload = function() {
 	document.getElementById('media_expo').addEventListener('swiped', function(e) {
@@ -27,4 +28,4 @@ window.onload = function() {
 		}
 	});
 };
-</script>
+</script>]

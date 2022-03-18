@@ -1,0 +1,10 @@
+<div class="container">
+	<div class="accueil">
+		<BOUCLE_rub(RUBRIQUES){id_rubrique}{profondeur>1}>
+		<a href="#URL_RUBRIQUE{#ID_PARENT}"><h1 id="nom_site_spip">#INFO_TITRE{rubrique,#ID_PARENT}</h1></a>
+		</BOUCLE_rub>
+		<a rel="start home" href="#URL_SITE_SPIP/"><h1 id="nom_site_spip">#NOM_SITE_SPIP</h1></a>
+		<//B_rub>
+	</div>
+	<INCLURE{fond=inclure/nav,env} />
+</div>

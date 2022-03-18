@@ -4,6 +4,5 @@
 		<a href="#URL_RUBRIQUE"><h1 id="nom_site_spip">#TITRE</h1></a>
 		</BOUCLE_rub>
 	</div>
-	[(#ENV{composition}|=={expo}|oui)
-	<INCLURE{fond=inclure/subnav,id_article} />]
+	<INCLURE{fond=inclure/nav,env} />
 </div>
