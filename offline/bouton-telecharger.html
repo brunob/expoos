@@ -1,0 +1,50 @@
+<div class="offline-download[ (#ENV{status,unactive})]">
+	<button data-src="[(#EVAL{_DIR_RACINE}|url_absolue|concat{offline.api.urlsdownload.json}|parametre_url{objet,#ENV{objet}}|parametre_url{id_objet,#ENV{id_objet}})]"
+	   class="btn btn-link btn-download">
+		[(#CHEMIN{images/download.svg}|balise_svg{28})]
+		<span class="label">[(#ENV{label_active,<:offline:offline_info_telecharger_lecture_offline_active:>}|attribut_html)]</span>
+	</button>
+	<span class="btn btn-link btn-disabled">
+		[(#CHEMIN{images/download.svg}|balise_svg{28})]
+		<span class="label">[(#ENV{label_unactive,<:offline:offline_info_telecharger_lecture_offline_unactive:>}|attribut_html)]</span>
+	</span>
+	<span class="offline-progress"></span>
+</div>
+<style type="text/css">
+	.offline-download {float: right;margin: 10px;text-align: center;position: relative}
+	.offline-download .label {display: block;text-align: center;max-width: 120px;font-size: 12px; margin: 0 auto;}
+	.offline-download .btn-download {display: none;}
+	.offline-download .downloading {display: none}
+	.offline-download .btn-disabled {display: block; opacity: 0.5;}
+	.offline-download.active .btn-download {display: block}
+	.offline-download.active .btn-disabled {display: none}
+	.offline-download.activable {opacity: 0.5;}
+	.offline-download.offline-ok:after {
+		content:'\02714';
+		font-size: 48px;
+		font-weight: bold;
+		line-height: 0.75;
+		color: #5EC738;
+		display: block;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+	.offline-download.offline-error:after {
+		content:'\0274C';
+		font-size: 36px;
+		font-weight: bold;
+		line-height: 0.75;
+		color: red;
+		display: block;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+	.offline-download.offline-downloading .offline-progress {
+		display: block;
+		position: absolute;
+		top:0;left: 0;width: 100%;height: 100%;
+		background: rgba(255,255,255,0.7) url([(#CHEMIN_IMAGE{searching.gif})]) no-repeat center;
+	}
+</style>
