@@ -11,11 +11,6 @@
 .menu > h5,
 .menu > h6 { margin-bottom: 0; }
 
-/* nav principale */
-.nav .menu { margin: 0; }
-.nav .menu-items { margin: 0; padding: 0; list-style: none; }
-.nav .menu-items .item { margin: 0; }
-
 /* Listes d'items */
 .liste { margin-bottom: 1.5em; }
 .cards { margin: 0; padding: 0; list-style: none; border-bottom: 0; margin-bottom: 1.5em; }

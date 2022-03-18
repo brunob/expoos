@@ -3,10 +3,9 @@
 		<header class="header" id="header" role="banner">
 			<INCLURE{fond=header/#ENV{type-page},env} />
 		</header>
-		<nav class="nav" id="nav">
-			<INCLURE{fond=inclure/nav,env} />
-		</nav><div class="container[(#SI_PAGE{article}|et{#ENV{composition}|=={expo}}|oui)fullwidth]" id="container">
-			<main class="content" id="content" role="main"><INCLURE{fond=content/#ENV{type-page},env} />
+		<div class="container[(#SI_PAGE{article}|et{#ENV{composition}|=={expo}}|oui)fullwidth]" id="container">
+			<main class="content" id="content" role="main">
+				<INCLURE{fond=content/#ENV{type-page},env} />
 			</main>
 			[<aside class="extra secondary" id="extra" role="complementary">(#SI_PAGE{article}|et{#ENV{composition}|=={expo}}|non)
 				<INCLURE{fond=extra/#ENV{type-page},env} />
