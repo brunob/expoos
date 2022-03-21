@@ -96,3 +96,14 @@ function expoos_pre_boucle($boucle) {
 
 	return $boucle;
 }
+
+/**
+ * Insérer le script d'init de GIS dans le head des pages pour qu'elles fonctionnent en mode offline
+ *
+ * @param $providers
+ * @return array
+ */
+function expoos_insert_head($flux){
+	$flux .= "\n<script type='text/javascript' src='".produire_fond_statique('javascript/gis.js')."'></script>\n";
+	return $flux;
+}

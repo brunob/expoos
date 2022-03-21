@@ -1,8 +1,7 @@
 <INCLURE{fond=modeles/carte_gis,
 	id_rubrique,
 	id_map=_expo,
-	objets=expo,
-	control_type=non,
+	point=non,
 	fullscreen=oui}>
 <BOUCLE_svg(DOCUMENTS){id_rubrique}{extension=svg}{0,1}>
 [(#FICHIER|balise_svg)]
@@ -21,6 +20,9 @@
 			}
 		});
 		$('#map_expo').on('ready', function(){
+			// charger le geojson des points
+			var geojson = <INCLURE{fond=gis_json,id_rubrique,objets=expo}>;
+			this.map.parseGeoJson(geojson);
 			// afficher le SVG du plan en overlay
 			var svgElement = document.querySelector('#plan'),
 			bounds = L.latLngBounds(eval(svgElement.getAttribute('data-bbox')));
