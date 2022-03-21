@@ -26,7 +26,7 @@
 			[<div class="#EDIT{texte} texte surlignable">(#TEXTE|image_reduire{680})</div>]
 			[(#INFO_CARTO{rubrique,#ID_RUBRIQUE}|et{#ANNEXE|=={''}}|oui)
 			<BOUCLE_centrer(GIS){id_article}{annexe=on}>
-			<h2><:expoos:titre_point_annexe:></h2>
+			<h2><:expoos:titre_point_annexe:></h2>[(#ID_GIS|gis_static_map{680,680,esri_worldimagery,#CONFIG{expoos/zoom_staticmaps,7}|plus{6}}|inserer_attribut{class,none})]
 			[<a href="[(#ID_GIS|gis_static_map{680,680,esri_worldimagery,#CONFIG{expoos/zoom_staticmaps,7}|plus{6}}|extraire_attribut{src})]" class="mediabox">(#ID_GIS|gis_static_map{680,220,cartodb_voyager,#CONFIG{expoos/zoom_staticmaps,7}})</a>]
 			</BOUCLE_centrer>]
 			[<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
