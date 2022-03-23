@@ -8,10 +8,22 @@
 	<div class="main">
 		[<div class="#EDIT{texte} chapo">(#TEXTE|adaptive_images)</div>]
 
+		<BOUCLE_types_expos(MOTS){id_groupe=#CONFIG{expoos/groupe_statuts,2}}><B_rubriques>
 		<div class="liste rubriques">
-			<INCLURE{fond=inclure/liste/rubriques,env,ajax,
-				class_liste='grid-2-small-1 has-gutter-xl'}>
+			<h2>#TITRE</h2>
+				<ul class="cards grid-4 has-gutter-l">
+					<BOUCLE_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{id_mot}{par num titre, titre}>
+					<li class="card tile[ (#LARGEUR)]"[ style="background-color: (#COULEUR|sinon{#bdbdbd});"]>
+						<a href="#URL_RUBRIQUE" rel="bookmark">
+							<article class="entry article hentry">
+								<strong class="h3 entry-title"[ style="color: #(#COULEUR|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser);"]>#TITRE</strong>
+							</article>
+						</a>
+					</li>
+					</BOUCLE_rubriques>
+				</ul>
 		</div>
+		</B_rubriques></BOUCLE_types_expos>
 	</div>
 
 	<footer>
