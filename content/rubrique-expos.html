@@ -18,7 +18,11 @@
 							<article class="entry article hentry">
 								<strong class="h3 entry-title"[ style="color: #(#COULEUR|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser);"]>#TITRE</strong>
 							</article>
-						</a>
+						</a><?php
+						if (isset($GLOBALS['visiteur_session']['id_auteur']) AND $GLOBALS['visiteur_session']['id_auteur']) {
+						?><span class="#EDIT{largeur}">←→</span><?php
+						}
+						?>
 					</li>
 					</BOUCLE_rubriques>
 				</ul>
