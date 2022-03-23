@@ -33,7 +33,9 @@
 			$('#map_expo').hide();
 			</BOUCLE_center>[(#GET{overlay}|oui)
 			// centrer la carte sur les bounds du SVG
-			this.map.fitBounds(bounds);]
+			this.map.fitBounds(bounds);][(#GET{overlay}|non)
+			// centrer la carte sur les bounds du json
+			this.map.fitBounds(L.geoJSON(geojson).getBounds());]
 			<//B_center>
 		});
 })(jQuery);
