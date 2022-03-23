@@ -6,6 +6,11 @@ spip_articles:
     saisie: case
 spip_rubriques:
   -
+    options: { nom: largeur, label: Largeur, datas: "one-half|1/2\r\none-third|1/3\r\none-quarter|1/4\r\none-fifth|1/5\r\ntwo-thirds|2/3\r\nthree-quarters|3/4\r\none-sixth|1/6\r\nfive-sixths|5/6\r\nfull|1", restrictions: { secteurs: '', branches: '', voir: { auteur: '' }, modifier: { auteur: '' } }, sql: 'text DEFAULT '''' NOT NULL' }
+    identifiant: '@623ae1e58f8db'
+    verifier: {  }
+    saisie: selection
+  -
     options: { nom: variante, label: Variante, datas: "carre|Carrés\r\nnumero|Numéros\r\nportrait|Portraits\r\nrectangle|Rectangles", restrictions: { secteurs: '', branches: '', voir: { auteur: '' }, modifier: { auteur: '' } }, sql: 'text DEFAULT '''' NOT NULL' }
     identifiant: '@621f689436baa'
     verifier: {  }
