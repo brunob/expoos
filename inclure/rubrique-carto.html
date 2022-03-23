@@ -4,7 +4,8 @@
 	point=non,
 	fullscreen=oui}>
 <BOUCLE_svg(DOCUMENTS){id_rubrique}{extension=svg}{0,1}>
-[(#FICHIER|balise_svg)]
+[(#FICHIER|balise_svg)][(#SET{overlay,oui})]
+</BOUCLE_svg>
 <script type="text/javascript">
 	;(function($){
 		$('#map_expo').on('load', function(){
@@ -22,19 +23,18 @@
 		$('#map_expo').on('ready', function(){
 			// charger le geojson des points
 			var geojson = <INCLURE{fond=gis_json,id_rubrique,objets=expo}>;
-			this.map.parseGeoJson(geojson);
+			this.map.parseGeoJson(geojson);[(#GET{overlay}|oui)
 			// afficher le SVG du plan en overlay
 			var svgElement = document.querySelector('#plan'),
 			bounds = L.latLngBounds(eval(svgElement.getAttribute('data-bbox')));
+			L.svgOverlay(svgElement, bounds).addTo(this.map);]
 			<BOUCLE_center(GIS){id_article}{1,1}>
 			this.map.setView(\[[(#LAT)],[(#LON)]\],20);
 			$('#map_expo').hide();
-			</BOUCLE_center>
+			</BOUCLE_center>[(#GET{overlay}|oui)
 			// centrer la carte sur les bounds du SVG
-			this.map.fitBounds(bounds);
+			this.map.fitBounds(bounds);]
 			<//B_center>
-			L.svgOverlay(svgElement, bounds).addTo(this.map);
 		});
 })(jQuery);
 </script>
-</BOUCLE_svg>
