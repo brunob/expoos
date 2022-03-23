@@ -50,7 +50,7 @@ function expoos_quete_logo_objet($flux) {
  */
 function expoos_pre_boucle($boucle) {
 	// On ne s'intéresse qu'à la boucle ARTICLES
-	if ($boucle->type_requete == 'articles' and empty($boucle->modificateur['tout'])) {
+	if ($boucle->type_requete == 'articles' and empty($boucle->modificateur['tout']) and !test_espace_prive()) {
 		// On n'insère le filtre {annexe=''} pour exclure les annexes que si aucune des conditions
 		// suivantes n'est vérifiée:
 		// - pas de critère annexe autre que {annexe=''}
