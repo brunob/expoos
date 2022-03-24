@@ -24,6 +24,7 @@
 	<necessite nom="oembed" compatibilite="[2.4.0;[" />
 	<necessite nom="centre_image" compatibilite="[2.1.3;[" />
 	<necessite nom="languepreferee" compatibilite="[1.1.0;[" />
+	<necessite nom="photoswipe" compatibilite="[0.6.1;[" />
 
 	<pipeline nom="quete_logo_objet" inclure="expoos_pipelines.php" />
 	<pipeline nom="pre_boucle" inclure="expoos_pipelines.php" />
