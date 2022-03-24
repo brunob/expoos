@@ -11,7 +11,14 @@
 		})(jQuery);
 	</script>
 	<INCLURE{fond=inclure/rubrique-carto,id_rubrique,id_article}>]
-	[(#LOGO_ARTICLE|image_recadre{1.86:1,-,focus}|image_reduire{1920}|inserer_attribut{itemprop,image}|inserer_attribut{class,logo_full}|inserer_attribut{id,media_expo})]
+	[(#LOGO_ARTICLE|image_recadre{1.86:1,-,focus}
+		|image_reduire{1920}
+		|inserer_attribut{data-photo,#LOGO_ARTICLE|extraire_attribut{src}}
+		|inserer_attribut{data-photo-h,#LOGO_ARTICLE|extraire_attribut{height}}
+		|inserer_attribut{data-photo-w,#LOGO_ARTICLE|extraire_attribut{width}}
+		|inserer_attribut{itemprop,image}
+		|inserer_attribut{class,logo_full}
+		|inserer_attribut{id,media_expo})]
 	<div class="container">
 		<header class="cartouche">
 			<h1 class="#EDIT{titre}" itemprop="name">[<span class="rang">\[(#RANG)\] </span>]#TITRE</h1>
