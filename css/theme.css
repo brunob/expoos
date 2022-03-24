@@ -183,3 +183,4 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .article_expo .logo_full { margin-bottom: 1em; }
 .article_expo .postmeta .traductions { display: block; }
 .article_expo .postmeta .objet_type { margin-top: 0.5em; }
+.article_expo .annexe { margin-bottom: 1.5em; }
