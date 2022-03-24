@@ -4,8 +4,12 @@
 	point=non,
 	fullscreen=oui}>
 <BOUCLE_svg(DOCUMENTS){id_rubrique}{extension=svg}{0,1}>
-[(#FICHIER|balise_svg)][(#SET{overlay,oui})]
+[(#FICHIER|balise_svg)][(#SET{svg,oui})]
 </BOUCLE_svg>
+<BOUCLE_gpx(DOCUMENTS){id_rubrique}{extension=gpx}{0,1}>
+<object data="#FICHIER" type="text/xml" width="0" height="0"></object>
+[(#SET{gpx,#FICHIER})]
+</BOUCLE_gpx>
 <script type="text/javascript">
 	;(function($){
 		$('#map_expo').on('load', function(){
@@ -21,21 +25,27 @@
 			}
 		});
 		$('#map_expo').on('ready', function(){
+			var map = this.map;
 			// charger le geojson des points
 			var geojson = <INCLURE{fond=gis_json,id_rubrique,objets=expo}>;
-			this.map.parseGeoJson(geojson);[(#GET{overlay}|oui)
+			map.parseGeoJson(geojson);[(#GET{svg}|oui)
 			// afficher le SVG du plan en overlay
 			var svgElement = document.querySelector('#plan'),
 			bounds = L.latLngBounds(eval(svgElement.getAttribute('data-bbox')));
-			L.svgOverlay(svgElement, bounds).addTo(this.map);]
+			L.svgOverlay(svgElement, bounds).addTo(map);][(#GET{gpx}|oui)
+			var gpx = new L.GPX(['(#GET{gpx})'], {async: true});
+			gpx.on('loaded', function (e) {
+				map.fitBounds(e.target.getBounds());
+			});
+			map.addLayer(gpx);]
 			<BOUCLE_center(GIS){id_article}{annexe=''}>
-			this.map.setView(\[[(#LAT)],[(#LON)]\],20);
+			map.setView(\[[(#LAT)],[(#LON)]\],20);
 			$('#map_expo').hide();
-			</BOUCLE_center>[(#GET{overlay}|oui)
+			</BOUCLE_center>[(#GET{svg}|oui)
 			// centrer la carte sur les bounds du SVG
-			this.map.fitBounds(bounds);][(#GET{overlay}|non)
+			map.fitBounds(bounds);][(#GET{svg}|et{#GET{gpx}}|non)
 			// centrer la carte sur les bounds du json
-			this.map.fitBounds(L.geoJSON(geojson).getBounds());]
+			map.fitBounds(L.geoJSON(geojson).getBounds());]
 			<//B_center>
 		});
 })(jQuery);

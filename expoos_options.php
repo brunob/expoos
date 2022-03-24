@@ -16,4 +16,4 @@ $GLOBALS['z_blocs'] = array(
 define('_LOGO_RUBRIQUE_DESACTIVER_HERITAGE', true);
 
 // indiquer à offline de cacher les fichiers audio présents dans les pages
-define('_OFFLINE_RESSOURCES_TAGS', ['audio' => 'src']);
+define('_OFFLINE_RESSOURCES_TAGS', ['audio' => 'src', 'object' => 'data']);
