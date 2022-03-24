@@ -8,6 +8,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	'carte_afficher' => 'Afficher la carte',
 	'carte_masquer' => 'Masquer la carte',
+	'carte_popup_ici' => 'Vous êtes ici :)',
 	'cfg_label_zoom_staticmaps' => 'Zoom des cartes statiques',
 	'cfg_titre' => 'Configuration du plugin Expoos',
 

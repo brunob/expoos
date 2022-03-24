@@ -40,6 +40,15 @@
 			map.addLayer(gpx);]
 			<BOUCLE_center(GIS){id_article}{annexe=''}>
 			map.setView(\[[(#LAT)],[(#LON)]\],20);
+			var i, count = 0;
+			for (i in map._layers) {
+				if (((map._layers[i].feature) && (map._layers[i].feature.id == #ID_ARTICLE)) || (map._layers[i].id && map._layers[i].id == #ID_ARTICLE)) {
+					//map._layers[i]._icon.classList.add('focus');
+					map._layers[i].bindPopup('<:expoos:carte_popup_ici|texte_script:>').openPopup();
+					break;
+				}
+				count++;
+			}
 			$('#map_expo').hide();
 			</BOUCLE_center>[(#GET{svg}|oui)
 			// centrer la carte sur les bounds du SVG
