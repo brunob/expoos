@@ -7,9 +7,6 @@
 			<main class="content" id="content" role="main">
 				<INCLURE{fond=content/#ENV{type-page},env} />
 			</main>
-			[<aside class="extra secondary" id="extra" role="complementary">(#SI_PAGE{article}|et{#ENV{composition}|=={expo}}|non)
-				<INCLURE{fond=extra/#ENV{type-page},env} />
-			</aside>]
 		</div>
 		<footer class="footer" id="footer" role="contentinfo">
 			<INCLURE{fond=footer/#ENV{type-page},env} />

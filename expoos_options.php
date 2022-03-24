@@ -6,7 +6,6 @@ if (!defined('_ECRIRE_INC_VERSION')) {
 
 $GLOBALS['z_blocs'] = array(
 	'content',
-	'extra',
 	'head',
 	'head_js',
 	'header',
