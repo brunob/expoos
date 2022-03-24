@@ -1,22 +1,20 @@
 <B_rubriques>
-	#ANCRE_PAGINATION
-	<ul class="cards[ (#ENV{class_liste})]">
-		<BOUCLE_rubriques(RUBRIQUES){id_parent=#ENV{id_rubrique}}{par num titre, titre}{pagination #ENV{pagination,12}}>
-		<li class="card default">
-			<INCLURE{fond=inclure/resume/#ENV{resume,rubrique},id_rubrique}>
+<div class="liste rubriques">
+	[<h2>(#INFO_TITRE{mot,#ID_MOT})</h2>]
+	<ul class="cards grid-4 has-gutter-l">
+		<BOUCLE_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{id_mot?}{par num titre, titre}>
+		<li class="card tile[ (#LARGEUR)]"[ style="background-color: (#COULEUR|sinon{#bdbdbd});"]>
+			<a href="#URL_RUBRIQUE" rel="bookmark">
+				<article class="entry article hentry">
+					<strong class="h3 entry-title"[ style="color: #(#COULEUR|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser);"]>#TITRE</strong>
+				</article>
+			</a><?php
+			if (isset($GLOBALS['visiteur_session']['id_auteur']) AND $GLOBALS['visiteur_session']['id_auteur']) {
+			?><span class="#EDIT{largeur}">←→</span><?php
+			}
+			?>
 		</li>
 		</BOUCLE_rubriques>
 	</ul>
-	[(#ENV{masquer_pagination}|!={oui}|oui)
-	[<nav role="navigation" class="pagination">
-		(#PAGINATION{
-			#ENV{modele_pagination,page_precedent_suivant},
-			label_precedent=#ENV{label_precedent,<:zcore:pagination_prev:>},
-			label_suivant=#ENV{label_suivant,<:zcore:pagination_next:>}
-		})
-	</nav>]
-	]
+</div>
 </B_rubriques>
-[(#SET{message_aucun, [(#ENV{message_aucun}|is_null|?{<:info_aucun_rubrique:>, #ENV{message_aucun}})]})]
-[<p class="aucun-resultat">(#GET{message_aucun})</p>]
-<//B_rubriques>

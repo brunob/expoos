@@ -6,28 +6,14 @@
 	</header>
 
 	<div class="main">
+		<h2><:accueil_site:></h2>
 		[<div class="#EDIT{texte} chapo">(#TEXTE|adaptive_images)</div>]
 
-		<BOUCLE_types_expos(MOTS){id_groupe=#CONFIG{expoos/groupe_statuts,2}}><B_rubriques>
-		<div class="liste rubriques">
-			<h2>#TITRE</h2>
-				<ul class="cards grid-4 has-gutter-l">
-					<BOUCLE_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{id_mot}{par num titre, titre}>
-					<li class="card tile[ (#LARGEUR)]"[ style="background-color: (#COULEUR|sinon{#bdbdbd});"]>
-						<a href="#URL_RUBRIQUE" rel="bookmark">
-							<article class="entry article hentry">
-								<strong class="h3 entry-title"[ style="color: #(#COULEUR|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser);"]>#TITRE</strong>
-							</article>
-						</a><?php
-						if (isset($GLOBALS['visiteur_session']['id_auteur']) AND $GLOBALS['visiteur_session']['id_auteur']) {
-						?><span class="#EDIT{largeur}">←→</span><?php
-						}
-						?>
-					</li>
-					</BOUCLE_rubriques>
-				</ul>
-		</div>
-		</B_rubriques></BOUCLE_types_expos>
+		<BOUCLE_types_expos(MOTS){id_groupe=#CONFIG{expoos/groupe_statuts,2}}>
+		<INCLURE{fond=inclure/liste/rubriques,id_rubrique,id_mot}>
+		</BOUCLE_types_expos>
+		[(#PROFONDEUR|>{0}|oui)
+		<INCLURE{fond=inclure/liste/rubriques,id_rubrique}>]
 	</div>
 
 	<footer>
