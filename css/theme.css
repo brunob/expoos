@@ -19,7 +19,13 @@ table.spip tr.row_even td,table.spip tr.row_even th { background: transparent; }
 /* ------------------------------------------
 /* Habillage des elements du contenu
 /* ------------------------------------------ */
-body { background: #fff; font-size: 120%; }
+@media (min-width: 768px) {
+	body { font-size: 120%; }
+}
+@media (max-width: 575.98px) {
+	body { font-size: 87.5%; }
+}
+body { background: #fff; }
 
 .header { margin: 0; padding : 1.5em 0; position: relative; background: #111; box-shadow: 0 6px 6px -6px rgba(0,0,0,0.2); }
 .header .container { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; }
@@ -107,9 +113,6 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 /* ------------------------------------------ */
 
 #container { max-width: 680px; font-size: 1.125em; }
-@media (max-width: 576px) {
-	#container { font-size: 1em; }
-}
 #container.fullwidth { max-width: none; width: 100%; }
 
 .page_login .content { max-width: 360px; margin: 0 auto; padding: 1em 0; text-align: center; }
