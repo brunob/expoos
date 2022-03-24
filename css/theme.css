@@ -129,9 +129,6 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 /* Expoos
 /* ------------------------------------------ */
 
-/* temp fix for oembed ref https://git.spip.net/spip-contrib-extensions/oembed/issues/15 */
-.oembed .spip_doc_legende { margin-left: auto; margin-right: auto; }
-
 /* components */
 .card { margin-bottom: 2.5rem; }
 .has-gutter-xl .card { margin-bottom: 4rem; }
