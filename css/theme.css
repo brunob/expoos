@@ -152,10 +152,13 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .card.numero .entry-title { font-size: 3em; }
 .card.numero a { display: block; padding: 1em 0; }
 
-.card.tile { display: flex; flex-direction: column; padding: 1em; }
-.card.tile a { flex: 1; }
+.card.tile { position: relative; }
+.card.tile .edit_largeur { position: absolute; right: 0; z-index: 1; background: #fff; opacity: 0.5; }
+.card.tile :where(a, article, img) { height: 100%; }
 .card.tile a:hover { text-decoration: none; }
-.card.tile .entry-title { font-size: 2em; }
+.card.tile article { position: relative; }
+.card.tile img { object-fit: cover; }
+.card.tile .entry-title { position: absolute; bottom: 1em; padding: 0.25em; }
 
 .card:where(.carre,.rectangle,.portrait) .banner { margin-bottom: 0.5em; }
 @media (min-width:576px){

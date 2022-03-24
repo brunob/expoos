@@ -3,16 +3,21 @@
 	[<h2>(#INFO_TITRE{mot,#ID_MOT})</h2>]
 	<ul class="cards grid-4 has-gutter-l">
 		<BOUCLE_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{id_mot?}{par num titre, titre}>
-		<li class="card tile[ (#LARGEUR)]"[ style="background-color: (#COULEUR|sinon{#bdbdbd});"]>
-			<a href="#URL_RUBRIQUE" rel="bookmark">
-				<article class="entry article hentry">
-					<strong class="h3 entry-title"[ style="color: #(#COULEUR|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser);"]>#TITRE</strong>
-				</article>
-			</a><?php
+		<li class="card tile[ (#LARGEUR)]"><?php
 			if (isset($GLOBALS['visiteur_session']['id_auteur']) AND $GLOBALS['visiteur_session']['id_auteur']) {
-			?><span class="#EDIT{largeur}">←→</span><?php
+			?><span class="edit_largeur #EDIT{largeur}">←→</span><?php
 			}
-			?>
+			?><a href="#URL_RUBRIQUE" rel="bookmark">
+				<article class="entry rubrique hentry">
+					[(#LOGO_RUBRIQUE
+						|image_recadre{1.86:1,-,focus}
+						|image_reduire{1178}
+						|vider_attribut{class}
+						|inserer_attribut{loading,lazy}
+						|sinon{#CHEMIN{images/nologo.svg}|balise_svg{'',default,297}})]
+					<strong class="h3 entry-title" style="[background-color: (#COULEUR|sinon{#bdbdbd}); ][color: #(#COULEUR|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser);]">#TITRE</strong>
+				</article>
+			</a>
 		</li>
 		</BOUCLE_rubriques>
 	</ul>
