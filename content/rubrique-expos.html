@@ -6,7 +6,8 @@
 	</header>
 
 	<div class="main">
-		<h2><:accueil_site:></h2>
+		[(#PROFONDEUR|>{0}|non)
+		<h2><:accueil_site:></h2>]
 		[<div class="#EDIT{texte} chapo">(#TEXTE|adaptive_images)</div>]
 
 		<BOUCLE_types_expos(MOTS){id_groupe=#CONFIG{expoos/groupe_statuts,2}}>
