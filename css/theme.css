@@ -153,12 +153,13 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .card.numero a { display: block; padding: 1em 0; }
 
 .card.tile { position: relative; }
-.card.tile .edit_largeur { position: absolute; right: 0; z-index: 1; background: #fff; opacity: 0.5; }
+.card.tile .edit_largeur { position: absolute; left: 0; z-index: 1; background: #fff; opacity: 0.5; }
 .card.tile :where(a, article, img) { height: 100%; }
 .card.tile a:hover { text-decoration: none; }
 .card.tile article { position: relative; }
 .card.tile img { object-fit: cover; }
 .card.tile .entry-title { position: absolute; bottom: 1em; padding: 0.25em; }
+.card.tile .actions { position: absolute; top: 0; right: 0; }
 
 .card:where(.carre,.rectangle,.portrait) .banner { margin-bottom: 0.5em; }
 @media (min-width:576px){
@@ -167,7 +168,8 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .card:where(.carre,.rectangle,.portrait) .objet_type { font-size: 0.625em; }
 
 .offline-download { float: none !important; margin: 0 !important; }
-.offline-download .btn { margin: 0 auto !important; }
+.offline-download .btn { margin: 0 auto !important; border: 0; background: rgba(255,255,255,0.75); }
+.offline-download .btn .label { display: none; }
 
 .objet_type { display: inline-block; padding: 0.25em 0.5em; font-weight: bold; font-family: var(--font-base); line-height: 1; }
 
