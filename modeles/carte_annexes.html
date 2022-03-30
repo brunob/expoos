@@ -1,0 +1,21 @@
+<INCLURE{fond=modeles/carte_gis,
+	objets=annexes,
+	id_map=_annexes,
+	id_rubrique=#ENV{id_rubrique},
+	autocenterandzoom=oui}>
+<script type="text/javascript">
+	;(function($){
+		$('#map_annexes').on('load', function(){
+			// pictos perso pour les markers
+			this.map.setGeoJsonFeatureIcon = function(feature, layer) {
+				layer.setIcon(L.divIcon({ html: '<div><span></span></div>', className: 'marker-dot', iconSize: new L.Point(40, 40) }));
+			}
+			// pas de popup pour les markers, le click renvoie direct vers l'article
+			this.map.setGeoJsonFeaturePopup = function(feature, layer) {
+				layer.on('click', function(e){
+					location = e.sourceTarget.feature.properties.url;
+				});
+			}
+		});
+})(jQuery);
+</script>
