@@ -3,6 +3,7 @@
 	id_map=_expo,
 	point=non,
 	fullscreen=oui}>
+<BOUCLE_couleur(RUBRIQUES){id_rubrique}>[(#SET{couleur,#COULEUR})]</BOUCLE_couleur>
 <BOUCLE_svg(DOCUMENTS){id_rubrique}{extension=svg}{0,1}>
 [(#FICHIER|balise_svg)][(#SET{svg,oui})]
 </BOUCLE_svg>
@@ -33,7 +34,7 @@
 			var svgElement = document.querySelector('#plan'),
 			bounds = L.latLngBounds(eval(svgElement.getAttribute('data-bbox')));
 			L.svgOverlay(svgElement, bounds).addTo(map);][(#GET{gpx}|oui)
-			var gpx = new L.GPX(['(#GET{gpx})'], {async: true});
+			var gpx = new L.GPX(['(#GET{gpx})'], {async: true, color: '[(#GET{couleur}|sinon{#666666})]'});
 			gpx.on('loaded', function (e) {
 				map.fitBounds(e.target.getBounds());
 			});
