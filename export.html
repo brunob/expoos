@@ -1,0 +1,54 @@
+[(#AUTORISER{configurer}|sinon_interdire_acces)]
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<!DOCTYPE html>
+<html dir="#LANG_DIR" lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js">
+<head>
+	<title>[(#NOM_SITE_SPIP|textebrut)]</title>
+	<style>
+		body {
+			font-family: 'Lato', sans-serif;
+			font-size: 14pt;
+		}
+		p {
+			margin: 0;
+		}
+		h1 {
+			font-size: 30pt;
+		}
+		h2 {
+			font-size: 25pt;
+		}
+		h3 {
+			font-size: 20pt;
+		}
+		.page {
+			page-break-after: always;
+		}
+		.qrcode {
+			float: right;
+			width: 80pt;
+			height: 80pt;
+			margin-left: 10pt;
+			margin-bottom: 10pt;
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		[<h1>(#TITRE)</h1>]
+		[<div class="texte">(#TEXTE)</div>]
+	</div>
+	<BOUCLE_articles(ARTICLES){id_rubrique}{par num titre, titre}>
+	<div class="page">
+		[<div class="qrcode">(#URL_ARTICLE|url_absolue|qrcode{3})</div>]
+		<h1>[\[(#RANG)\] - ]#TITRE</h1>
+		[<div class="texte">(#TEXTE)</div>]
+		<BOUCLE_en(ARTICLES){traduction}{lang=en}>
+		<h2>#TITRE</h2>
+		[<div class="texte">(#TEXTE)</div>]
+		</BOUCLE_en>
+	</div>
+	</BOUCLE_articles>
+</body>
+</html>
+</BOUCLE_rubrique>
