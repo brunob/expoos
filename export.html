@@ -37,6 +37,10 @@
 	<div class="page">
 		[<h1>(#TITRE)</h1>]
 		[<div class="texte">(#TEXTE)</div>]
+		<BOUCLE_ruben(RUBRIQUES){traduction}{lang=en}>
+		[<h2>(#TITRE)</h2>]
+		[<div class="texte">(#TEXTE)</div>]
+		</BOUCLE_ruben>
 	</div>
 	<BOUCLE_articles(ARTICLES){id_rubrique}{par num titre, titre}{annexe=''}>
 	<div class="page">
