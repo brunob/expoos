@@ -137,7 +137,7 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .card .banner a { color: #fff; }
 .card .banner img,
 .card .banner svg { display: block; margin: 0 auto; }
-.card .entry-title { font-family: var(--font-corps); }
+.card .entry-title { font-family: var(--font-corps); font-size: 1em; }
 .card .rang { opacity: 0.4; font-size: 70%; float: right; margin: 0 0 0.5em 0.5em; }
 
 .card.default { border-radius: 0.5rem; box-shadow: 0 0 10px rgba(0,0,0,0.15); transition: box-shadow 0.2s ease-out; }
@@ -163,7 +163,7 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .card.tile .actions .offline-download .btn { color: initial; }
 
 .card:where(.carre,.rectangle,.portrait) .banner { margin-bottom: 0.5em; }
-@media (min-width:576px){
+@media (min-width: 768px) {
 	.card:where(.carre,.rectangle,.portrait) .entry-title { font-size: 0.725em; }
 }
 .card:where(.carre,.rectangle,.portrait) .objet_type { font-size: 0.625em; }
