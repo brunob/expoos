@@ -31,6 +31,15 @@
 			margin-left: 10pt;
 			margin-bottom: 10pt;
 		}
+		.trad {
+			color:#555;
+		}
+		.trad .texte {
+			font-size : 12pt;
+		}
+		@media print {
+			#spip-admin { display: none; }
+		}
 	</style>
 </head>
 <body>
@@ -45,11 +54,13 @@
 	<BOUCLE_articles(ARTICLES){id_rubrique}{par num titre, titre}{annexe=''}>
 	<div class="page">
 		[<div class="qrcode">(#URL_ARTICLE|url_absolue|qrcode{3})</div>]
-		<h1>[\[(#RANG)\] - ]#TITRE</h1>
+		<h2>[\[(#RANG)\] - ]#TITRE</h2>
 		[<div class="texte">(#TEXTE)</div>]
 		<BOUCLE_en(ARTICLES){traduction}{lang=en}>
-		<h2>#TITRE</h2>
-		[<div class="texte">(#TEXTE)</div>]
+		<div class="trad">
+			<h3>#TITRE</h3>
+			[<div class="texte">(#TEXTE)</div>]
+		</div>
 		</BOUCLE_en>
 	</div>
 	</BOUCLE_articles>
