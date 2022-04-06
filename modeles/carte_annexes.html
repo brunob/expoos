@@ -10,12 +10,6 @@
 			this.map.setGeoJsonFeatureIcon = function(feature, layer) {
 				layer.setIcon(L.divIcon({ html: '<div><span></span></div>', className: 'marker-dot', iconSize: new L.Point(40, 40) }));
 			}
-			// pas de popup pour les markers, le click renvoie direct vers l'article
-			this.map.setGeoJsonFeaturePopup = function(feature, layer) {
-				layer.on('click', function(e){
-					location = e.sourceTarget.feature.properties.url;
-				});
-			}
 		});
 })(jQuery);
 </script>
