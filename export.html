@@ -4,13 +4,18 @@
 <html dir="#LANG_DIR" lang="#LANG" class="[(#LANG_DIR)][ (#LANG)] no-js">
 <head>
 	<title>[(#NOM_SITE_SPIP|textebrut)]</title>
+	[<link rel="stylesheet" href="(#CHEMIN{css/font.css})" type="text/css" />]
+	[<link rel="stylesheet" href="(#CHEMIN{[css/polices/(#TYPOS).css]})" type="text/css" />]
 	<style>
 		body {
-			font-family: 'Lato', sans-serif;
+			font-family: var(--font-corps);
 			font-size: 14pt;
 		}
 		p {
 			margin: 0;
+		}
+		h1, h2, h3 {
+			font-weight: bold; font-family: var(--font-titres);
 		}
 		h1 {
 			font-size: 30pt;
