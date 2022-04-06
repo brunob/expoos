@@ -1,12 +1,12 @@
 <nav role="navigation" class="nav pagination" id="nav">
 	<ul class="pagination-items">
-	<BOUCLE_article(ARTICLES){id_article}>
+	<BOUCLE_article(ARTICLES){id_article}>[(#SET{annexe,#ANNEXE})]
 		<BOUCLE_precedent(ARTICLES){id_rubrique}{par num titre, titre}{precedent}>
 		<li class="pagination-item prev"><a class="pagination-item-label" id="article_precedent" href="#URL_ARTICLE">[(#CHEMIN{images/prev.svg}|balise_svg{<:zcore:pagination_prev:>,28})]</a></li>
 		</BOUCLE_precedent>
 		<li class="pagination-item prev disabled"><span class="pagination-item-label">[(#CHEMIN{images/prev.svg}|balise_svg{<:zcore:pagination_prev:>,28})]</span></li>
 		<//B_precedent>
-		[(#INFO_CARTO{rubrique,#ID_RUBRIQUE}|et{#ANNEXE|=={''}}|oui)
+		[(#INFO_CARTO{rubrique,#ID_RUBRIQUE}|et{#GET{annexe}|=={''}}|oui)
 		<li class="pagination-item"><a class="pagination-item-label" href="#" id="toggle_map" title="<:expoos:carte_afficher|texte_script:>">[(#CHEMIN{images/map.svg}|balise_svg{28})]</a></li>]
 		<BOUCLE_suivant (ARTICLES) {id_rubrique} {par num titre} {suivant}>
 		<li class="pagination-item next"><a class="pagination-item-label" id="article_suivant" href="#URL_ARTICLE">[(#CHEMIN{images/next.svg}|balise_svg{<:zcore:pagination_next:>,28})]</a></li>
@@ -16,7 +16,7 @@
 	</BOUCLE_article>
 		<li class="pagination-item"><a class="pagination-item-label" rel="start home" href="#URL_SITE_SPIP/" id="home">[(#CHEMIN{images/home.svg}|balise_svg{<:accueil_site:>,28})]</a></li>
 	</ul>
-</nav>[(#ENV{page}|=={article}|oui)
+</nav>[(#ENV{page}|=={article}|et{#GET{annexe}|=={''}}|oui)
 <script type="text/javascript">
 window.onload = function() {
 	document.getElementById('media_expo').addEventListener('swiped', function(e) {
