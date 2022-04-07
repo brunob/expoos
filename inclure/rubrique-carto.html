@@ -34,7 +34,7 @@
 			var svgElement = document.querySelector('#plan'),
 			bounds = L.latLngBounds(eval(svgElement.getAttribute('data-bbox')));
 			L.svgOverlay(svgElement, bounds).addTo(map);][(#GET{gpx}|oui)
-			var gpx = new L.GPX(['(#GET{gpx})'], {async: true, color: '[(#GET{couleur}|sinon{#666666})]'});
+			var gpx = new L.GPX(['(#GET{gpx})'], {async: true, color: '[(#GET{couleur}|sinon{#46c6e9})]'});
 			gpx.on('loaded', function (e) {
 				map.fitBounds(e.target.getBounds());
 			});
