@@ -10,11 +10,18 @@
 		<h2><:accueil_site:></h2>]
 		[<div class="#EDIT{texte} chapo">(#TEXTE|adaptive_images)</div>]
 
+		<BOUCLE_origine(RUBRIQUES){traduction}{origine_traduction}>
+		#SET{origine,#ID_RUBRIQUE}
+		</BOUCLE_origine>
+
+		[(#PROFONDEUR|>{0}|non)
 		<BOUCLE_types_expos(MOTS){id_groupe=#CONFIG{expoos/groupe_statuts,2}}>
-		<INCLURE{fond=inclure/liste/rubriques,id_rubrique,id_mot}>
+		<INCLURE{fond=inclure/liste/rubriques,id_rubrique=#GET{origine},id_mot}>
 		</BOUCLE_types_expos>
+		]
 		[(#PROFONDEUR|>{0}|oui)
-		<INCLURE{fond=inclure/liste/rubriques,id_rubrique}>]
+		<INCLURE{fond=inclure/liste/rubriques,id_rubrique=#GET{origine}}>
+		]
 	</div>
 
 	<footer>

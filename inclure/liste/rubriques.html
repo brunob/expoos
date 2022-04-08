@@ -1,30 +1,20 @@
-<B_rubriques>
+<B_orig>
 <div class="liste rubriques">
 	[<h2>(#INFO_TITRE{mot,#ID_MOT})</h2>]
 	[<div class="actions">(#BOUTON_TELECHARGER_OFFLINE{mot,#ID_MOT})</div>]
 	[<div class="#EDIT{texte} chapo">(#INFO_TEXTE{mot,#ID_MOT})</div>]
 	<ul class="cards grid-4 has-gutter-l">
-		<BOUCLE_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{id_mot?}{par num titre, titre}>
+		<BOUCLE_orig(RUBRIQUES){id_parent=#ID_RUBRIQUE}{id_mot?}{par num titre, titre}>
 		<li class="card tile[ (#LARGEUR)]"><?php
 			if (isset($GLOBALS['visiteur_session']['id_auteur']) AND $GLOBALS['visiteur_session']['id_auteur']) {
 			?><span class="edit_largeur #EDIT{largeur}">←→</span><?php
 			}
-			?><a href="#URL_RUBRIQUE" rel="bookmark">
-				<article class="entry rubrique hentry">
-					[(#LOGO_RUBRIQUE
-						|image_recadre{1.86:1,-,focus}
-						|image_reduire{1178}
-						|vider_attribut{class}
-						|inserer_attribut{loading,lazy}
-						|sinon{#CHEMIN{images/nologo.svg}|balise_svg{'',default,297}})]
-					<strong class="h3 entry-title" style="[background-color: (#COULEUR|sinon{#bdbdbd}|couleur_transaprence); ][color: #(#COULEUR|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser);]">#TITRE</strong>
-					<div class="actions">
-						[(#BOUTON_TELECHARGER_OFFLINE{rubrique,#ID_RUBRIQUE})]
-					</div>
-				</article>
-			</a>
+			?><BOUCLE_trad(RUBRIQUES){traduction}{lang=#ENV{lang}}>
+				<INCLURE{fond=inclure/resume/rubrique,id_rubrique,
+					couleur=#_orig:COULEUR}>
+			</BOUCLE_trad>
 		</li>
-		</BOUCLE_rubriques>
+	</BOUCLE_orig>
 	</ul>
 </div>
-</B_rubriques>
+</B_orig>

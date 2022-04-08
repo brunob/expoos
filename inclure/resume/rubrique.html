@@ -1,21 +1,16 @@
 <BOUCLE_resume_rubrique(RUBRIQUES){id_rubrique}>
-<article class="entry rubrique hentry">
-	[<div class="banner">
-		<a href="#URL_RUBRIQUE" rel="bookmark">
-			(#LOGO_RUBRIQUE
-				|image_recadre{1.86:1,-,focus}
-				|image_reduire{680}
-				|vider_attribut{class}
-				|inserer_attribut{loading,lazy}
-				|sinon{#CHEMIN{images/nologo.svg}|balise_svg{'',default,297}})
-		</a>
-	</div>]
-	<div class="details">
-		<strong class="h3 entry-title"><a href="#URL_RUBRIQUE" rel="bookmark">#TITRE</a></strong>
-		[<div class="introduction entry-content">(#TEXTE|couper{#ENV{coupe,150}})</div>]
+<a href="#URL_RUBRIQUE" rel="bookmark">
+	<article class="entry rubrique hentry">
+		[(#LOGO_RUBRIQUE
+			|image_recadre{1.86:1,-,focus}
+			|image_reduire{1178}
+			|vider_attribut{class}
+			|inserer_attribut{loading,lazy}
+			|sinon{#CHEMIN{images/nologo.svg}|balise_svg{'',default,297}})]
+		<strong class="h3 entry-title" style="[background-color: (#ENV{couleur}|sinon{#bdbdbd}|couleur_transaprence); ][color: #(#ENV{couleur}|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser);]">#TITRE</strong>
 		<div class="actions">
 			[(#BOUTON_TELECHARGER_OFFLINE{rubrique,#ID_RUBRIQUE})]
 		</div>
-	</div>
-</article>
+	</article>
+</a>
 </BOUCLE_resume_rubrique>
