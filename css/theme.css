@@ -54,9 +54,11 @@ body { background: #fff; }
 #nav a:hover,
 #nav a:active { color: #fff; }
 
+.footer { text-align: left; }
 .footer,
 .footer a { color: rgba(0,0,0,0.55); font-family: var(--font-base); }
 .footer a:hover { text-decoration: none; }
+.footer h3:before { content: ""; display: block; width: 40px; margin-bottom: 10px; border-bottom: 10px solid; }
 
 .breadcrumb { clear: both; margin-bottom: 1.5em; font-size: 0.75em; font-family: var(--font-base); }
 .breadcrumb, .breadcrumb a { color: rgba(0,0,0,0.55); }
