@@ -26,6 +26,8 @@ table.spip tr.row_even td,table.spip tr.row_even th { background: transparent; }
 	body { font-size: 87.5%; }
 }
 body { background: #fff; }
+.page { display: flex; min-height: 100vh; flex-direction: column; }
+.page .container { flex: 1; }
 
 .header { margin: 0; padding : 1.5em 0; position: relative; background: #111; box-shadow: 0 6px 6px -6px rgba(0,0,0,0.2); }
 .header .container { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; }
