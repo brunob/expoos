@@ -4,9 +4,6 @@
 	point=non,
 	fullscreen=oui}>
 <BOUCLE_couleur(RUBRIQUES){id_rubrique}>[(#SET{couleur,#COULEUR})]</BOUCLE_couleur>
-<BOUCLE_svg(DOCUMENTS){id_rubrique}{extension=svg}{0,1}>
-[(#FICHIER|balise_svg)][(#SET{svg,oui})]
-</BOUCLE_svg>
 <BOUCLE_gpx(DOCUMENTS){id_rubrique}{extension=gpx}{0,1}>
 <object data="#FICHIER" type="text/xml" width="0" height="0"></object>
 [(#SET{gpx,#FICHIER})]
@@ -29,11 +26,7 @@
 			var map = this.map;
 			// charger le geojson des points
 			var geojson = <INCLURE{fond=gis_json,id_rubrique,objets=expo}>;
-			map.parseGeoJson(geojson);[(#GET{svg}|oui)
-			// afficher le SVG du plan en overlay
-			var svgElement = document.querySelector('#plan'),
-			bounds = L.latLngBounds(eval(svgElement.getAttribute('data-bbox')));
-			L.svgOverlay(svgElement, bounds).addTo(map);][(#GET{gpx}|oui)
+			map.parseGeoJson(geojson);[(#GET{gpx}|oui)
 			var gpx = new L.GPX(['(#GET{gpx})'], {async: true, color: '[(#GET{couleur}|sinon{#46c6e9})]'});
 			gpx.on('loaded', function (e) {
 				map.fitBounds(e.target.getBounds());
@@ -51,9 +44,7 @@
 				count++;
 			}
 			$('#map_expo').hide();
-			</BOUCLE_center>[(#GET{svg}|oui)
-			// centrer la carte sur les bounds du SVG
-			map.fitBounds(bounds);][(#GET{svg}|et{#GET{gpx}}|non)
+			</BOUCLE_center>[(#GET{gpx}|non)
 			// centrer la carte sur les bounds du json
 			map.fitBounds(L.geoJSON(geojson).getBounds());]
 			<//B_center>
