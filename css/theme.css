@@ -162,7 +162,7 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .card.tile a:hover { text-decoration: none; }
 .card.tile article { position: relative; }
 .card.tile img { object-fit: cover; }
-.card.tile .entry-title { position: absolute; bottom: 1em; padding: 0.25em; }
+.card.tile .entry-title { position: absolute; bottom: 1em; padding: 0.5em; }
 .card.tile .actions { position: absolute; top: 0.5em; right: 0.5em; padding: 0.125em; border-radius: 50%; background-color: #fff; }
 .card.tile .actions .offline-download .btn { color: initial; }
 
