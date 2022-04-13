@@ -116,7 +116,7 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 /* Variantes
 /* ------------------------------------------ */
 
-#container { max-width: 680px; font-size: 1.125em; }
+#container { max-width: 860px; font-size: 1.125em; }
 #container.fullwidth { max-width: none; width: 100%; }
 
 .page_login .content { max-width: 360px; margin: 0 auto; padding: 1em 0; text-align: center; }
@@ -194,7 +194,7 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .rubrique_expo #map_expo { margin-bottom: 3em; }
 
 .article_expo .content { margin-top: 0; }
-.article_expo .content .container { max-width: 680px; margin-top: 1.5em !important; }
+.article_expo .content .container { max-width: 860px; margin-top: 1.5em !important; }
 .article_expo .postmeta .traductions { display: block; }
 .article_expo .postmeta .objet_type { margin-top: 0.5em; }
 .article_expo .annexe { margin-bottom: 1.5em; }
