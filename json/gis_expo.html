@@ -3,5 +3,6 @@
 		["geometry": (#GEOMETRY|appliquer_filtre{wkt_to_json}|sinon{{"type": "Point", "coordinates": \[#LON, #LAT\]}}),]
 		"id":"#ID_ARTICLE",
 		"properties": {
+			"rang":[(#RANG|json_encode)],
 			"url":[(#URL_ARTICLE|url_absolue|json_encode)]
 		}}</BOUCLE_art>
