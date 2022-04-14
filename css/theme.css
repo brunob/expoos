@@ -183,6 +183,20 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .marker-dot span { line-height: 24px }
 .marker-dot.notext div { width: 12px; height: 12px; margin-left: 10px; margin-top: 10px; border-radius: 12px; }
 
+.marker-location circle { animation: marker-pulsate 4s ease infinite; }
+@keyframes marker-pulsate {
+	0% {
+		stroke-width: 1;
+	}
+	50% {
+		stroke-width: 3;
+		transform: scale(0.8, 0.8);
+	}
+	100% {
+		stroke-width: 1;
+	}
+}
+
 /* layout */
 .page_sommaire #container,
 .page_rubrique #container { max-width: none; }

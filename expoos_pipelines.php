@@ -107,3 +107,17 @@ function expoos_insert_head($flux){
 	$flux .= "\n<script type='text/javascript' src='".produire_fond_statique('javascript/gis.js')."'></script>\n";
 	return $flux;
 }
+
+/**
+ * Ajouter le script geolet au script gis.js appelé par les cartes
+ *
+ * @param $flux
+ * @return array
+ */
+function expoos_recuperer_fond($flux){
+	if ($flux['args']['fond'] == 'javascript/gis.js') {
+		$ajouts = "\n". spip_file_get_contents(find_in_path('javascript/geolet.js'));
+		$flux['data']['texte'] .= $ajouts;
+	}
+	return $flux;
+}
