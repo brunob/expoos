@@ -1,20 +1,23 @@
-<B_orig>
+[(#SET{rubriques,#ARRAY})]
+<BOUCLE_orig(RUBRIQUES){id_parent=#ID_RUBRIQUE}{id_mot?}{par num titre, titre}><BOUCLE_trad(RUBRIQUES){traduction}{lang=#ENV{lang}}>
+[(#SET_PUSH{rubriques,#ID_RUBRIQUE})]
+</BOUCLE_trad></BOUCLE_orig>
+
+<B_rubs>
 <div class="liste rubriques">
 	[<h2>(#INFO_TITRE{mot,#ID_MOT})</h2>]
 	[<div class="actions">(#BOUTON_TELECHARGER_OFFLINE{mot,#ID_MOT})</div>]
 	[<div class="#EDIT{texte} chapo">(#INFO_TEXTE{mot,#ID_MOT})</div>]
 	<ul class="cards grid-4 has-gutter-l">
-		<BOUCLE_orig(RUBRIQUES){id_parent=#ID_RUBRIQUE}{id_mot?}{par num titre, titre}>
+	<BOUCLE_rubs(RUBRIQUES){id_rubrique IN #GET{rubriques}}{par num titre, titre}><BOUCLE_origine(RUBRIQUES){traduction}{origine_traduction}>
 		<li class="card tile[ (#LARGEUR)]"><?php
 			if (isset($GLOBALS['visiteur_session']['id_auteur']) AND $GLOBALS['visiteur_session']['id_auteur']) {
 			?><span class="edit_largeur #EDIT{largeur}">←→</span><?php
 			}
-			?><BOUCLE_trad(RUBRIQUES){traduction}{lang=#ENV{lang}}>
-				<INCLURE{fond=inclure/resume/rubrique,id_rubrique,
-					couleur=#_orig:COULEUR}>
-			</BOUCLE_trad>
+			?><INCLURE{fond=inclure/resume/rubrique,id_rubrique=#_rubs:ID_RUBRIQUE,
+				couleur=#COULEUR}>
 		</li>
-	</BOUCLE_orig>
+	</BOUCLE_origine></BOUCLE_rubs>
 	</ul>
 </div>
-</B_orig>
+</B_rubs>
