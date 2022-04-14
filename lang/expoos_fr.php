@@ -13,7 +13,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'cfg_label_zoom_staticmaps' => 'Zoom des cartes statiques',
 	'cfg_titre' => 'Configuration du plugin Expoos',
 
-	'footer_extras' => 'Enfin !',
+	'footer_extras' => 'Financeurs',
 
 	'titre_annexes' => 'À propos',
 	'titre_point_annexe' => 'Géolocalisation de la carrière',
