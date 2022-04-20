@@ -28,9 +28,10 @@
 			var geojson = <INCLURE{fond=gis_json,id_rubrique,objets=expo}>;
 			map.parseGeoJson(geojson);[(#GET{gpx}|oui)
 			var gpx = new L.GPX(['(#GET{gpx})'], {async: true, color: '[(#GET{couleur}|sinon{#46c6e9})]'});
+			[(#ENV{id_article}|non)
 			gpx.on('loaded', function (e) {
 				map.fitBounds(e.target.getBounds());
-			});
+			});]
 			map.addLayer(gpx);]
 			<BOUCLE_center(GIS){id_article}{annexe=''}>
 			map.setView(\[[(#LAT)],[(#LON)]\],20);
