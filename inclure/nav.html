@@ -14,7 +14,7 @@
 		<li class="pagination-item next disabled"><span class="pagination-item-label">[(#CHEMIN{images/next.svg}|balise_svg{<:zcore:pagination_next:>,28})]</span></li>
 		<//B_suivant>
 	</BOUCLE_article>
-		<li class="pagination-item"><a class="pagination-item-label" rel="start home" href="#URL_SITE_SPIP/" id="home">[(#CHEMIN{images/home.svg}|balise_svg{<:accueil_site:>,28})]</a></li>
+		<li class="pagination-item"><a class="pagination-item-label" rel="start home" href="#URL_RUBRIQUE{#ID_SECTEUR}" id="home">[(#CHEMIN{images/home.svg}|balise_svg{<:accueil_site:>,28})]</a></li>
 	</ul>
 </nav>[(#ENV{page}|=={article}|et{#GET{annexe}|=={''}}|oui)
 <script type="text/javascript">
