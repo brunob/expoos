@@ -55,6 +55,7 @@ body { background: #fff; }
 #nav a:focus,
 #nav a:hover,
 #nav a:active { color: #fff; }
+#nav .pagination-item.disabled .pagination-item-label { color: rgba(255, 255, 255, 0.5); }
 
 .footer { text-align: left; }
 .footer * { font-family: var(--font-base); }
