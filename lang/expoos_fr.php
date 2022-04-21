@@ -17,6 +17,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	'titre_annexes' => 'À propos',
 	'titre_point_annexe' => 'Géolocalisation de la carrière',
+	'titre_points_annexes' => 'Géolocalisation des carrières',
 	'titre_ps' => 'En savoir plus',
 
 );
