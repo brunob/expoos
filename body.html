@@ -3,7 +3,7 @@
 		<header class="header" id="header" role="banner">
 			<INCLURE{fond=header/#ENV{type-page},env} />
 		</header>
-		<div class="container[(#SI_PAGE{article}|et{#ENV{composition}|=={expo}}|oui)fullwidth]" id="container">
+		<div class="container[(#SI_PAGE{article}|et{#ENV{composition}|in_array{#LISTE{expo,mineral}}}|oui)fullwidth]" id="container">
 			<main class="content" id="content" role="main">
 				<INCLURE{fond=content/#ENV{type-page},env} />
 			</main>

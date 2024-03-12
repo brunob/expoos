@@ -1,0 +1,50 @@
+<BOUCLE_content(RUBRIQUES){id_rubrique}>
+<section>
+
+	<header class="cartouche">
+		<h1 class="#EDIT{titre}">#TITRE</h1>
+		[<div class="postmeta">
+			(#MODELE{rubrique_traductions})
+		</div>]
+	</header>
+
+	<div class="main">
+		[<div class="#EDIT{texte} chapo">(#TEXTE|adaptive_images)</div>]
+
+		<BOUCLE_origine(RUBRIQUES){traduction}{origine_traduction}>
+		[(#SET{class,grid-[(#COLONNES|sinon{3})]-small-[(#COLONNES|sinon{3}|div{2}|intval)] has-gutter-l})][
+		(#SET{resume,[article-(#VARIANTE)]})][
+		(#SET{carto,#CARTO})]
+		</BOUCLE_origine>
+
+		[(#GET{carto}|oui)
+		<INCLURE{fond=inclure/rubrique-carto,id_rubrique}>]
+
+		<div class="liste articles">
+			<INCLURE{fond=inclure/liste/articles,env,ajax,
+				class_liste=#GET{class},
+				resume=#GET{resume}
+			}>
+		</div>
+
+		<B_articles>
+		<div class="liste articles annexes">
+			<h2><:expoos:titre_annexes:></h2>
+			<ul class="liste-items">
+				<BOUCLE_articles(ARTICLES){id_rubrique?}{par num titre, titre}{annexe=on}>
+				<li class="item">
+					<a href="#URL_ARTICLE">#TITRE</a>
+				</li>
+				</BOUCLE_articles>
+			</ul>
+		</div>
+		</B_articles>
+		
+	</div>
+
+	<footer>
+		[<div class="notes"><h2><:info_notes:></h2>(#NOTES)</div>]
+	</footer>
+
+</section>
+</BOUCLE_content>

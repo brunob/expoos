@@ -1,0 +1,6 @@
+<composition>
+	<nom>Rubrique Minéraux</nom>
+	<description>Composition adaptée pour la collection de minéraux.</description>
+	<icon>images/objet-simple.png</icon>
+	<branche type="article" composition="mineral" />
+</composition>

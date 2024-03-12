@@ -1,0 +1,71 @@
+<BOUCLE_content(ARTICLES){id_article}>
+<article itemscope itemtype="http://schema.org/Article">
+	[(#LOGO_ARTICLE|image_recadre{1.86:1,-,focus}
+		|image_reduire{1920}
+		|inserer_attribut{data-photo,#LOGO_ARTICLE|extraire_attribut{src}}
+		|inserer_attribut{data-photo-h,#LOGO_ARTICLE|extraire_attribut{height}}
+		|inserer_attribut{data-photo-w,#LOGO_ARTICLE|extraire_attribut{width}}
+		|inserer_attribut{itemprop,image}
+		|inserer_attribut{class,logo_full}
+		|inserer_attribut{id,media_expo})]
+	<div class="container">
+		<header class="cartouche">
+			<h1 class="#EDIT{titre}" itemprop="name">[<span class="rang">\[(#RANG)\] </span>]#TITRE</h1>
+			<div class="postmeta">
+				#MODELE{article_traductions}
+			</div>
+		</header>
+
+		<div class="main" itemprop="articleBody">
+			<div class="categories">
+				[(#REM) Merci geodiv https://github.com/geodiversite/geodiversite/blob/36ca152156e4c84cf9cb748df5dc2c116fdb729e/inclure/media_mots.html#L17 ]
+				#SET{parents_indirects,#ARRAY}
+				<BOUCLE_cats(RUBRIQUES){parents_indirects}{tout}>
+				#SET_PUSH{parents_indirects,#ID_RUBRIQUE}</BOUCLE_cats>
+				#SET{cats,oui}</B_cats>
+				<BOUCLE_testmots(MOTS){id_article}{0,1}>#SET{cats,oui}</BOUCLE_testmots>
+				[(#GET{cats}|oui)
+				<table class="spip resume">
+					<caption><:expoos:titre_proprietes:></caption>
+					<tbody>]
+				<BOUCLE_cat_mere(RUBRIQUES){id_parent=#CONFIG{expoos/secteur_categories,42}}{tout}>
+					<B_cat>
+						<tr>
+							<td class="label">[(#_cat_mere:TITRE|unique)]</td>
+							<td><BOUCLE_cat(RUBRIQUES){branche_principale}{id_rubrique IN #GET{parents_indirects}}{tout}{', '}>[<a href="[(#URL_RUBRIQUE{#_content:ID_RUBRIQUE}|parametre_url{categorie,#ID_RUBRIQUE})]">(#TITRE)</a>]</BOUCLE_cat></td>
+						</tr>
+					</B_cat>
+				</BOUCLE_cat_mere>
+				<BOUCLE_mots(MOTS){id_article}{par num type, type}>
+						<tr>
+							<td class="label">#TYPE</td>
+							<td>[<a href="[(#URL_RUBRIQUE{#_content:ID_RUBRIQUE}|parametre_url{id_mot,#ID_MOT})]">(#TITRE)</a>]</BOUCLE_cat></td>
+						</tr>
+				</BOUCLE_mots>
+				[(#GET{cats}|oui)
+					</tbody>
+				</table>]
+			</div>
+			[<div class="#EDIT{chapo} chapo surlignable">(#CHAPO|image_reduire{860})</div>]
+			[<div class="#EDIT{texte} texte surlignable">(#TEXTE|image_reduire{860})</div>]
+			<B_centrer>
+			<div class="annexe">
+				<h2>[(#TOTAL_BOUCLE|>{1}|?{<:expoos:titre_points_annexes:>,<:expoos:titre_point_annexe:>})]</h2>
+				<BOUCLE_centrer(GIS){id_article}>
+				<p>
+					[(#ID_GIS|gis_static_map{860,860,esri_worldimagery,#CONFIG{expoos/zoom_staticmaps,7}|plus{6}}|inserer_attribut{class,none})]
+					[<a href="[(#ID_GIS|gis_static_map{860,860,esri_worldimagery,#CONFIG{expoos/zoom_staticmaps,7}|plus{6}}|extraire_attribut{src})]" class="mediabox">(#ID_GIS|gis_static_map{860,220,cartodb_voyager,#CONFIG{expoos/zoom_staticmaps,7}})</a>]
+				</p>
+				</BOUCLE_centrer>
+			</div>
+			</B_centrer>
+			[<p class="#EDIT{hyperlien} hyperlien"><:voir_en_ligne:> : <a href="(#URL_SITE)" class="spip_out">[(#NOM_SITE|sinon{[(#URL_SITE|couper{80})]})]</a></p>]
+		</div>
+
+		<footer>
+			[<div class="#EDIT{ps} ps surlignable"><h2><:expoos:titre_ps:></h2>(#PS|image_reduire{860})</div>]
+			[<div class="notes"><h2><:info_notes:></h2>(#NOTES)</div>]
+		</footer>
+	</div>
+</article>
+</BOUCLE_content>

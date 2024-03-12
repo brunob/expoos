@@ -1,0 +1,6 @@
+<composition>
+	<nom>Article Minéral</nom>
+	<description>Composition adaptée pour un article de la collection de minéraux.</description>
+	<icon>images/objet-simple.png</icon>
+	<class>article_expo</class>
+</composition>

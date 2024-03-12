@@ -213,3 +213,5 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .article_expo .content .container { max-width: 860px; margin-top: 1.5em !important; }
 .article_expo .postmeta .traductions { display: block; }
 .article_expo .postmeta .objet_type { margin-top: 0.5em; }
+
+.article_mineral .categories { margin-bottom: 1.5em; }
