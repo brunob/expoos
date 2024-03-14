@@ -1,6 +1,10 @@
 <BOUCLE_art(ARTICLES){id_article}><BOUCLE_origine(ARTICLES){traduction}{origine_traduction}>
-<BOUCLE_rub(RUBRIQUES){id_rubrique}>[(#SET{couleur,#COULEUR})]</BOUCLE_rub>
+#SET{parents_indirects,#ARRAY}
 <BOUCLE_cats(RUBRIQUES){parents_indirects}{tout}>
-<span class="objet_type" style="background-color: [(#GET{couleur}|sinon{#bdbdbd})]; color: [#(#GET{couleur}|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser)];"> [(#TITRE*|extraire_multi{#ENV{lang,fr}})]</span>
-</BOUCLE_cats>
+#SET_PUSH{parents_indirects,#ID_RUBRIQUE}</BOUCLE_cats>
+<BOUCLE_cat_mere(RUBRIQUES){id_parent=#CONFIG{expoos/secteur_categories,42}}{tout}>
+<BOUCLE_cat(RUBRIQUES){branche_principale}{id_rubrique IN #GET{parents_indirects}}{tout}>
+<span class="objet_type" style="background-color: [(#_cat_mere:COULEUR|sinon{#bdbdbd})]; color: [#(#_cat_mere:COULEUR|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser)];">[(#TITRE*|extraire_multi{#ENV{lang,fr}})]</span>
+</BOUCLE_cat>
+</BOUCLE_cat_mere>
 </BOUCLE_origine></BOUCLE_art>
