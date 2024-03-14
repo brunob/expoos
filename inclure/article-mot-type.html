@@ -1,6 +1,6 @@
 <BOUCLE_art(ARTICLES){id_article}><BOUCLE_origine(ARTICLES){traduction}{origine_traduction}>
 <BOUCLE_rub(RUBRIQUES){id_rubrique}>[(#SET{couleur,#COULEUR})]</BOUCLE_rub>
 <BOUCLE_type(MOTS){id_groupe=#CONFIG{expoos/groupe_types,1}}{id_article}>
-<span class="objet_type" style="background-color: [(#GET{couleur}|sinon{#bdbdbd})]; color: [#(#GET{couleur}|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser)];"> [(#TITRE*|extraire_multi{#ENV{lang,fr}})]</span>
+<span class="objet_type" style="background-color: [(#GET{couleur}|sinon{#bdbdbd})]; color: [#(#GET{couleur}|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser)];">[(#TITRE*|extraire_multi{#ENV{lang,fr}})]</span>
 </BOUCLE_type>
 </BOUCLE_origine></BOUCLE_art>
