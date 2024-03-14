@@ -214,4 +214,7 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .article_expo .postmeta .traductions { display: block; }
 .article_expo .postmeta .objet_type { margin-top: 0.5em; }
 
+.rubrique_mineraux .filtres { padding: 1em 0; }
+.rubrique_mineraux .filtres div { padding: 0.5em 0; }
+
 .article_mineral .categories { margin-bottom: 1.5em; }

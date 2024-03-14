@@ -49,9 +49,10 @@
 		</script>
 
 		<div class="liste articles">
-			<INCLURE{fond=inclure/liste/mineraux,env,ajax,
+			<INCLURE{fond=inclure/liste/mineraux,env,ajax=liste,
 				class_liste=#GET{class},
-				resume=#GET{resume}
+				resume=#GET{resume},
+				id_mot
 			}>
 		</div>
 
