@@ -13,15 +13,43 @@
 
 		<BOUCLE_origine(RUBRIQUES){traduction}{origine_traduction}>
 		[(#SET{class,grid-[(#COLONNES|sinon{3})]-small-[(#COLONNES|sinon{3}|div{2}|intval)] has-gutter-l})][
-		(#SET{resume,[article-(#VARIANTE)]})][
-		(#SET{carto,#CARTO})]
+		(#SET{resume,[article-(#VARIANTE)]})]
 		</BOUCLE_origine>
 
-		[(#GET{carto}|oui)
-		<INCLURE{fond=inclure/rubrique-carto,id_rubrique}>]
+		<INCLURE{fond=modeles/carte_gis,
+			id_rubrique,
+			id_map=_expo,
+			point=non,
+			zoom_wheel=non,
+			fullscreen=oui}>
+		<BOUCLE_couleur(RUBRIQUES){id_rubrique}>[(#SET{couleur,#COULEUR})]</BOUCLE_couleur>
+		<script type="text/javascript">
+			;(function($){
+				$('#map_expo').on('load', function(){
+					// pictos perso pour les markers
+					this.map.setGeoJsonFeatureIcon = function(feature, layer) {
+						layer.setIcon(L.divIcon({ html: '<div><span></span></div>', className: 'marker-dot notext', iconSize: new L.Point(40, 40) }));
+					}
+					// pas de popup pour les markers, le click renvoie direct vers l'article
+					this.map.setGeoJsonFeaturePopup = function(feature, layer) {
+						layer.on('click', function(e){
+							location = e.sourceTarget.feature.properties.url;
+						});
+					}
+				});
+				$('#map_expo').on('ready', function(){
+					var map = this.map;
+					// charger le geojson des points
+					var geojson = <INCLURE{fond=gis_json,id_rubrique,objets=expo}>;
+					map.parseGeoJson(geojson);
+					// centrer la carte sur les bounds du json
+					map.fitBounds(L.geoJSON(geojson).getBounds());
+				});
+		})(jQuery);
+		</script>
 
 		<div class="liste articles">
-			<INCLURE{fond=inclure/liste/articles,env,ajax,
+			<INCLURE{fond=inclure/liste/mineraux,env,ajax,
 				class_liste=#GET{class},
 				resume=#GET{resume}
 			}>
