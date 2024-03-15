@@ -1,9 +1,26 @@
 <div class="filtres grid-3-small-1 has-gutter-l">
+	<BOUCLE_cat_mere(RUBRIQUES){id_parent=#CONFIG{expoos/secteur_categories,42}}{tout}>
+	<B_sous_rubriques>
+	<form action="#URL_RUBRIQUE{#ENV{id_rubrique}}" method="get">
+		<select name="categorie" style="width: 100%" class="select2" data-placeholder--id="" data-placeholder--text="[(#_cat_mere:TITRE|attribut_html)]" data-allow-clear="true" onchange="ajaxReload('liste',{args:{categorie:this.value ? this.value : undefined},history:true})">
+			<option value=""[(#ENV{categorie}|non)selected="selected"]></option>
+		<BOUCLE_sous_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{par num titre, titre}{tout}>
+			<option value="#ID_RUBRIQUE"[(#ENV{categorie}|=={#ID_RUBRIQUE}|oui)selected="selected"]>[(#VAL{⋅}|str_repeat{#PROFONDEUR}) ]#TITRE</option>
+			<BOUCLE_filles(RUBRIQUES){id_parent}{par num titre, titre}{tout}>
+			<option value="#ID_RUBRIQUE"[(#ENV{categorie}|=={#ID_RUBRIQUE}|oui)selected="selected"]>[(#VAL{⋅}|str_repeat{#PROFONDEUR}) ]#TITRE</option>
+			<BOUCLE_f2(BOUCLE_filles)></BOUCLE_f2>
+			</BOUCLE_filles>
+		</BOUCLE_sous_rubriques>
+		</select>
+		<noscript><p class="boutons"><input type="submit" class="btn submit" value="&gt;&gt;" /></p></noscript>
+	</form>
+	</B_sous_rubriques>
+	</BOUCLE_cat_mere>
 	<BOUCLE_groupes(GROUPES_MOTS){id_groupe !IN #CONFIG{expoos/mots_types,#LISTE{1,2,3}}}{par num titre}>	
 	<div><form action="#URL_RUBRIQUE{#ENV{id_rubrique}}" method="get">
 	[(#URL_RUBRIQUE{#ENV{id_rubrique}}|form_hidden)]
-	<select name="id_mot" style="width: 100%" onchange="ajaxReload('liste',{args:{id_mot:this.value ? this.value : undefined},history:true})">
-		<option value=""[(#ENV{id_mot}|non)selected="selected"]>> #TITRE</option>
+	<select name="id_mot" style="width: 100%" class="select2" data-placeholder--id="" data-placeholder--text="[(#TITRE|attribut_html)]" data-allow-clear="true" onchange="ajaxReload('liste',{args:{id_mot:this.value ? this.value : undefined},history:true})">
+		<option value=""[(#ENV{id_mot}|non)selected="selected"]></option>
 		<BOUCLE_themes(MOTS){id_groupe}{par titre}>
 		<option value="#ID_MOT"[(#ENV{id_mot}|=={#ID_MOT}|oui)selected="selected"]>#TITRE</option>
 		</BOUCLE_themes>
@@ -11,10 +28,21 @@
 	</form></div>
 	</BOUCLE_groupes>
 </div>
+[(#REM) fix select2 bug with allow-clear https://github.com/select2/select2/issues/3320#issuecomment-524153140 ]
+<script type="text/javascript">
+	;(function($){
+		$(".select2").on("select2:clear", function (evt) {
+			$(this).on("select2:opening.cancelOpen", function (evt) {
+				evt.preventDefault();
+				$(this).off("select2:opening.cancelOpen");
+			});
+		});
+	})(jQuery);
+</script>
 <B_articles>
 	#ANCRE_PAGINATION
 	<ul class="cards[ (#ENV{class_liste})]">
-		<BOUCLE_articles(ARTICLES){id_rubrique?}{id_mot?}{par num titre, titre}{pagination #ENV{pagination,50}}>
+		<BOUCLE_articles(ARTICLES){id_rubrique?}{branche ?#ENV{categorie}}{id_mot?}{par num titre, titre}{pagination #ENV{pagination,50}}>
 		<li class="card[ (#ENV{resume}|substr{8}|sinon{default})]">
 			<INCLURE{fond=inclure/resume/#ENV{resume,article},id_article,mineral=oui}>
 		</li>
