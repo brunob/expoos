@@ -1,7 +1,7 @@
 <div class="filtres grid-3-small-1 has-gutter-l">
 	<BOUCLE_cat_mere(RUBRIQUES){id_parent=#CONFIG{expoos/secteur_categories,42}}{tout}>
 	<B_sous_rubriques>
-	<form action="#URL_RUBRIQUE{#ENV{id_rubrique}}" method="get">
+	<div><form action="#URL_RUBRIQUE{#ENV{id_rubrique}}" method="get">
 		<select name="categorie" style="width: 100%" class="select2" data-placeholder--id="" data-placeholder--text="[(#_cat_mere:TITRE|attribut_html)]" data-allow-clear="true" onchange="ajaxReload('liste',{args:{categorie:this.value ? this.value : undefined},history:true})">
 			<option value=""[(#ENV{categorie}|non)selected="selected"]></option>
 		<BOUCLE_sous_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{par num titre, titre}{tout}>
@@ -13,7 +13,7 @@
 		</BOUCLE_sous_rubriques>
 		</select>
 		<noscript><p class="boutons"><input type="submit" class="btn submit" value="&gt;&gt;" /></p></noscript>
-	</form>
+	</form></div>
 	</B_sous_rubriques>
 	</BOUCLE_cat_mere>
 	<BOUCLE_groupes(GROUPES_MOTS){id_groupe !IN #CONFIG{expoos/mots_types,#LISTE{1,2,3}}}{par num titre}>	
