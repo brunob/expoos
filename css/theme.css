@@ -90,7 +90,7 @@ div.socialtags img { height: 24px; }
 .ps, .notes { margin-bottom: 1.5em; }
 .notes { clear: both; font-size: 0.846em; }
 
-.main .logo_full { display: block; margin-bottom: 1.5em; }
+.logo_full { width: 100%; }
 
 /* ------------------------------------------
 /* Sous-navigation et autres menus
