@@ -50,7 +50,7 @@
 			[<div class="#EDIT{texte} texte surlignable">(#TEXTE|image_reduire{860})</div>]
 			<B_centrer>
 			<div class="annexe">
-				<h2>[(#TOTAL_BOUCLE|>{1}|?{<:expoos:titre_points_annexes:>,<:expoos:titre_point_annexe:>})]</h2>
+				<h2><:expoos:titre_geoloc:></h2>
 				<BOUCLE_centrer(GIS){id_article}>
 				<p>
 					[(#ID_GIS|gis_static_map{860,860,esri_worldimagery,#CONFIG{expoos/zoom_staticmaps,7}|plus{6}}|inserer_attribut{class,none})]

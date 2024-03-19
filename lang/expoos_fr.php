@@ -16,6 +16,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'footer_extras' => 'Financeurs',
 
 	'titre_annexes' => 'À propos',
+	'titre_geoloc' => 'Géolocalisation',
 	'titre_point_annexe' => 'Géolocalisation de la carrière',
 	'titre_points_annexes' => 'Géolocalisation des carrières',
 	'titre_proprietes' => 'Propriétés',
