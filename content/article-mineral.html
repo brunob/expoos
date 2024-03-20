@@ -34,12 +34,14 @@
 						</tr>
 					</B_cat>
 					</BOUCLE_cat_mere>
-					<BOUCLE_mots(MOTS){id_rubrique}{par num type, type}>
+					<BOUCLE_groupes(GROUPES_MOTS){par num type, type}>
+					<B_mots>
 						<tr>
 							<td class="label">#TYPE</td>
-							<td>[<a href="[(#URL_RUBRIQUE{#_content:ID_RUBRIQUE}|parametre_url{id_mot,#ID_MOT})]">(#TITRE)</a>]</td>
+							<td><BOUCLE_mots(MOTS){id_groupe}{id_rubrique}{', '}>[<a href="[(#URL_RUBRIQUE{#_content:ID_RUBRIQUE}|parametre_url{id_mot,#ID_MOT})]">(#TITRE)</a>]</BOUCLE_mots></td>
 						</tr>
-					</BOUCLE_mots>
+					</B_mots>
+					</BOUCLE_groupes>
 					</tbody>
 				</table>
 				</BOUCLE_mineral></BOUCLE_mieraux>
