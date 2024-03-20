@@ -51,7 +51,7 @@
 	<ul class="cards[ (#ENV{class_liste})]">
 		<BOUCLE_articles(ARTICLES){id_rubrique?}{branche ?#ENV{categorie}}{enfants_indirects ?#GET{cats}}{par num titre, titre}{pagination #ENV{pagination,50}}>
 		<li class="card[ (#ENV{resume}|substr{8}|sinon{default})]">
-			<INCLURE{fond=inclure/resume/#ENV{resume,article},id_article,mineral=oui}>
+			<INCLURE{fond=inclure/resume/#ENV{resume,article},id_article,masquer_pastilles=oui}>
 		</li>
 		</BOUCLE_articles>
 	</ul>
