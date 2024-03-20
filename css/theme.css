@@ -216,5 +216,9 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 
 .rubrique_mineraux .filtres { padding: 1em 0; }
 .rubrique_mineraux .filtres div { padding: 0.5em 0; }
+.rubrique_mineraux .cards { margin-top: 1em; }
+.rubrique_mineraux .card { border-radius: 0.25em; background: rgba(0,0,0,0.05); box-shadow: 0 0 0 1px rgba(0,0,0,0.1); text-align: center; }
+.rubrique_mineraux .card .banner { margin: 0; }
+.rubrique_mineraux .card .entry-title { padding: 1em 0.5em; }
 
 .article_mineral .categories { margin-bottom: 1.5em; }
