@@ -22,11 +22,11 @@
 				#SET{parents_indirects,#ARRAY}
 				<BOUCLE_cats(RUBRIQUES){parents_indirects}{tout}>
 				#SET_PUSH{parents_indirects,#ID_RUBRIQUE}</BOUCLE_cats>
-				<BOUCLE_mieraux(RUBRIQUES){id_rubrique=210}{tout}><BOUCLE_mineral(RUBRIQUES){branche_principale}{id_rubrique IN #GET{parents_indirects}}{tout}>
+				<BOUCLE_mieraux(RUBRIQUES){id_rubrique=#CONFIG{expoos/rubrique_mineraux,210}}{tout}><BOUCLE_mineral(RUBRIQUES){branche_principale}{id_rubrique IN #GET{parents_indirects}}{tout}>
 				<table class="spip resume">
 					<caption>[(#TITRE) <a href="[(#URL_RUBRIQUE{#_content:ID_RUBRIQUE}|parametre_url{categorie,#ID_RUBRIQUE})]">ⓘ</a>]</caption>
 					<tbody>
-					<BOUCLE_cat_mere(RUBRIQUES){id_parent=#CONFIG{expoos/secteur_categories,42}}{id_rubrique!=210}{tout}>
+					<BOUCLE_cat_mere(RUBRIQUES){id_parent=#CONFIG{expoos/secteur_categories,42}}{id_rubrique!=#CONFIG{expoos/rubrique_mineraux,210}}{tout}>
 					<B_cat>
 						<tr>
 							<td class="label">[(#_cat_mere:TITRE)]</td>
