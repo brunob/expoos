@@ -5,9 +5,9 @@
 		<select name="categorie" style="width: 100%" class="select2" data-placeholder--id="" data-placeholder--text="[(#_cat_mere:TITRE|attribut_html)]" data-allow-clear="true" onchange="ajaxReload('liste',{args:{categorie:this.value ? this.value : undefined},history:true})">
 			<option value=""[(#ENV{categorie}|non)selected="selected"]></option>
 		<BOUCLE_sous_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{par num titre, titre}{tout}>
-			<option value="#ID_RUBRIQUE"[(#ENV{categorie}|=={#ID_RUBRIQUE}|oui)selected="selected"]>[(#VAL{⋅}|str_repeat{#PROFONDEUR}) ]#TITRE</option>
+			<option value="#ID_RUBRIQUE"[(#ENV{categorie}|=={#ID_RUBRIQUE}|oui)selected="selected"]>[(#VAL{>}|str_repeat{#PROFONDEUR|moins{1}}) ]#TITRE</option>
 			<BOUCLE_filles(RUBRIQUES){id_parent}{par num titre, titre}{tout}>
-			<option value="#ID_RUBRIQUE"[(#ENV{categorie}|=={#ID_RUBRIQUE}|oui)selected="selected"]>[(#VAL{⋅}|str_repeat{#PROFONDEUR}) ]#TITRE</option>
+			<option value="#ID_RUBRIQUE"[(#ENV{categorie}|=={#ID_RUBRIQUE}|oui)selected="selected"]>[(#VAL{>}|str_repeat{#PROFONDEUR|moins{1}}) ]#TITRE</option>
 			<BOUCLE_f2(BOUCLE_filles)></BOUCLE_f2>
 			</BOUCLE_filles>
 		</BOUCLE_sous_rubriques>
