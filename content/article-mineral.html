@@ -22,29 +22,28 @@
 				#SET{parents_indirects,#ARRAY}
 				<BOUCLE_cats(RUBRIQUES){parents_indirects}{tout}>
 				#SET_PUSH{parents_indirects,#ID_RUBRIQUE}</BOUCLE_cats>
-				#SET{cats,oui}</B_cats>
-				<BOUCLE_testmots(MOTS){id_article}{0,1}>#SET{cats,oui}</BOUCLE_testmots>
-				[(#GET{cats}|oui)
+				<BOUCLE_mieraux(RUBRIQUES){id_rubrique=210}{tout}><BOUCLE_mineral(RUBRIQUES){branche_principale}{id_rubrique IN #GET{parents_indirects}}{tout}>
 				<table class="spip resume">
-					<caption><:expoos:titre_proprietes:></caption>
-					<tbody>]
-				<BOUCLE_cat_mere(RUBRIQUES){id_parent=#CONFIG{expoos/secteur_categories,42}}{tout}>
+					<caption>[(#TITRE) <a href="[(#URL_RUBRIQUE{#_content:ID_RUBRIQUE}|parametre_url{categorie,#ID_RUBRIQUE})]">ⓘ</a>]</caption>
+					<tbody>
+					<BOUCLE_cat_mere(RUBRIQUES){id_parent=#CONFIG{expoos/secteur_categories,42}}{id_rubrique!=210}{tout}>
 					<B_cat>
 						<tr>
-							<td class="label">[(#_cat_mere:TITRE|unique)]</td>
+							<td class="label">[(#_cat_mere:TITRE)]</td>
 							<td><BOUCLE_cat(RUBRIQUES){branche_principale}{id_rubrique IN #GET{parents_indirects}}{tout}{', '}>[<a href="[(#URL_RUBRIQUE{#_content:ID_RUBRIQUE}|parametre_url{categorie,#ID_RUBRIQUE})]">(#TITRE)</a>]</BOUCLE_cat></td>
 						</tr>
 					</B_cat>
-				</BOUCLE_cat_mere>
-				<BOUCLE_mots(MOTS){id_article}{par num type, type}>
+					</BOUCLE_cat_mere>
+					<BOUCLE_mots(MOTS){id_rubrique}{par num type, type}>
 						<tr>
 							<td class="label">#TYPE</td>
-							<td>[<a href="[(#URL_RUBRIQUE{#_content:ID_RUBRIQUE}|parametre_url{id_mot,#ID_MOT})]">(#TITRE)</a>]</BOUCLE_cat></td>
+							<td>[<a href="[(#URL_RUBRIQUE{#_content:ID_RUBRIQUE}|parametre_url{id_mot,#ID_MOT})]">(#TITRE)</a>]</td>
 						</tr>
-				</BOUCLE_mots>
-				[(#GET{cats}|oui)
+					</BOUCLE_mots>
 					</tbody>
-				</table>]
+				</table>
+				</BOUCLE_mineral></BOUCLE_mieraux>
+				</B_cats>
 			</div>
 			[<div class="#EDIT{chapo} chapo surlignable">(#CHAPO|image_reduire{860})</div>]
 			[<div class="#EDIT{texte} texte surlignable">(#TEXTE|image_reduire{860})</div>]
