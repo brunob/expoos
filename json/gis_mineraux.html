@@ -1,0 +1,8 @@
+<BOUCLE_art(ARTICLES){gis}{id_rubrique?}{branche ?#ENV{categorie}}{enfants_indirects ?#ENV{cats}}{","}{gis.annexe=''}>
+{"type": "Feature",
+["geometry": (#GEOMETRY|appliquer_filtre{wkt_to_json}|sinon{{"type": "Point", "coordinates": \[#LON, #LAT\]}}),]
+"id":"#ID_ARTICLE",
+"properties": {
+	"title":"",
+	"description":[(#INCLURE{fond=inclure/popup,id_article}|json_encode)]
+}}</BOUCLE_art>

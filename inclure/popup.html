@@ -1,0 +1,10 @@
+<BOUCLE_resume_article(ARTICLES){id_article}{statut?}>
+[<a href="#URL_ARTICLE">
+	(#LOGO_ARTICLE
+		|image_recadre{1.86:1,+,focus}
+		|image_reduire{250}
+		|vider_attribut{class}
+		|sinon{#CHEMIN{images/nologo.svg}|balise_svg{'',default,144}})
+</a>]
+<strong class="h3 entry-title"><a href="#URL_ARTICLE">#TITRE</a></strong>
+</BOUCLE_resume_article>
