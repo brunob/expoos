@@ -71,16 +71,16 @@
 </script>
 
 <BOUCLE_groupe(MOTS){id_mot}>
-<div class="filtre_desc">
+[<div class="filtre_desc">
 	<h2>#TYPE</h2>
-	#INFO_TEXTE{groupes_mots,#ID_GROUPE}
-</div>
+	(#INFO_TEXTE{groupes_mots,#ID_GROUPE})
+</div>]
 </BOUCLE_groupe>
 <BOUCLE_cat(RUBRIQUES){id_rubrique=#ENV{categorie}}>
-<div class="filtre_desc">
+[<div class="filtre_desc">
 	<h2>#TITRE</h2>
-	#TEXTE
-</div>
+	(#TEXTE)
+</div>]
 </BOUCLE_cat>
 
 <B_articles>
