@@ -32,7 +32,7 @@
 	<BOUCLE_cat_mere(RUBRIQUES){id_parent=#CONFIG{expoos/secteur_categories,42}}{id_rubrique!=#CONFIG{expoos/rubrique_roches,144}}{tout}>
 	<B_sous_rubriques>
 	<div><form action="#URL_RUBRIQUE{#ENV{id_rubrique}}" method="get">
-		<select name="categorie" style="width: 100%" class="select2" data-placeholder--id="" data-placeholder--text="[(#_cat_mere:TITRE|attribut_html)]" data-allow-clear="true" onchange="ajaxReload('liste',{args:{categorie:this.value ? this.value : undefined},history:true})">
+		<select name="categorie" style="width: 100%" class="select2" data-placeholder--id="" data-placeholder--text="[(#_cat_mere:TITRE|attribut_html)]" data-allow-clear="true" onchange="ajaxReload('liste',{args:{categorie:this.value ? this.value : undefined, id_mot: undefined},history:true})">
 			<option value=""[(#ENV{categorie}|non)selected="selected"]></option>
 		<BOUCLE_sous_rubriques(RUBRIQUES){id_parent=#ID_RUBRIQUE}{par num titre, titre}{tout}>
 			<option value="#ID_RUBRIQUE"[(#ENV{categorie}|=={#ID_RUBRIQUE}|oui)selected="selected"]>[(#VAL{>}|str_repeat{#PROFONDEUR|moins{1}}) ]#TITRE</option>
@@ -49,7 +49,7 @@
 	<BOUCLE_groupes(GROUPES_MOTS){id_groupe !IN #CONFIG{expoos/mots_types,#LISTE{1,2,3}}}{par num titre}>	
 	<div><form action="#URL_RUBRIQUE{#ENV{id_rubrique}}" method="get">
 	[(#URL_RUBRIQUE{#ENV{id_rubrique}}|form_hidden)]
-	<select name="id_mot" style="width: 100%" class="select2" data-placeholder--id="" data-placeholder--text="[(#TITRE|attribut_html)]" data-allow-clear="true" onchange="ajaxReload('liste',{args:{id_mot:this.value ? this.value : undefined},history:true})">
+	<select name="id_mot" style="width: 100%" class="select2" data-placeholder--id="" data-placeholder--text="[(#TITRE|attribut_html)]" data-allow-clear="true" onchange="ajaxReload('liste',{args:{id_mot:this.value ? this.value : undefined, categorie: undefined},history:true})">
 		<option value=""[(#ENV{id_mot}|non)selected="selected"]></option>
 		<BOUCLE_themes(MOTS){id_groupe}{par titre}>
 		<option value="#ID_MOT"[(#ENV{id_mot}|=={#ID_MOT}|oui)selected="selected"]>#TITRE</option>
