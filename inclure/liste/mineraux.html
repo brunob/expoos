@@ -23,7 +23,7 @@
 			var geojson = <INCLURE{fond=gis_json,id_rubrique,objets=mineraux,categorie,cats=#GET{cats}}>;
 			map.parseGeoJson(geojson);
 			// centrer la carte sur les bounds du json
-			map.fitBounds(L.geoJSON(geojson).getBounds());
+			map.fitBounds(L.geoJSON(geojson).getBounds()[,(#ENV{id_mot}|ou{#ENV{categorie}}|oui){maxZoom: 14}]);
 		});
 })(jQuery);
 </script>
