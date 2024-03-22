@@ -72,13 +72,13 @@
 
 <BOUCLE_groupe(MOTS){id_mot}>
 [<div class="filtre_desc">
-	<h2>#TYPE</h2>
+	<h2>#TYPE[ : (#TITRE|strtolower)]</h2>
 	(#INFO_TEXTE{groupes_mots,#ID_GROUPE})
 </div>]
 </BOUCLE_groupe>
 <BOUCLE_cat(RUBRIQUES){id_rubrique=#ENV{categorie}}>
 [<div class="filtre_desc">
-	<h2>#TITRE</h2>
+	<h2><BOUCLE_titre_cat_mere(HIERARCHIE){id_rubrique}{tout}{1,1}>#TITRE</BOUCLE_titre_cat_mere>[ : (#TITRE|strtolower)]</h2>
 	(#TEXTE)
 </div>]
 </BOUCLE_cat>
