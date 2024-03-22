@@ -18,6 +18,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_aucun_mineral' => 'Aucun échantillon associé à &#171;&nbsp;@filtre@&nbsp;&#187;',
 
 	'titre_annexes' => 'À propos',
+	'titre_filtres' => 'Filtres',
 	'titre_geoloc' => 'Géolocalisation',
 	'titre_point_annexe' => 'Géolocalisation de la carrière',
 	'titre_points_annexes' => 'Géolocalisation des carrières',

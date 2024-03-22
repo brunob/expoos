@@ -12,6 +12,7 @@
 	zoom_wheel=non,
 	fullscreen=oui}>
 
+<div class="filtres_toggle"><a href="#" class="button"><:expoos:titre_filtres:></a></div>
 <div class="filtres grid-3-small-1 has-gutter-l">
 	<BOUCLE_cat_mere(RUBRIQUES){id_parent=#CONFIG{expoos/secteur_categories,42}}{id_rubrique!=#CONFIG{expoos/rubrique_roches,144}}{tout}>
 	<B_sous_rubriques>
@@ -111,5 +112,14 @@
 				[(#REM)$(this).fadeOut('fast', function() { $(this).remove(); });]
 				ajaxReload('liste',{args:{id_mot: undefined, categorie: undefined},history:true});
 			});
+		if (Cookies.get('afficher_filtres') != 'oui') {
+			$('.filtres').hide();
+		}
+		$('.filtres_toggle .button').on('click',function(){
+			var value = Cookies.get('afficher_filtres') == 'oui' ? 'non' : 'oui';
+			Cookies.set('afficher_filtres', value, {SameSite: 'Strict'});
+			$('.filtres').slideToggle('fast');
+			return false;
+		});
 })(jQuery);
 </script>
