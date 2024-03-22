@@ -222,6 +222,7 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .rubrique_mineraux .leaflet-popup-content .entry-title a:hover { text-decoration: none; }
 .rubrique_mineraux .leaflet-popup-tip { background: #f2f2f2; }
 .rubrique_mineraux .filtres_toggle { margin: 1.5em 0 1em; text-align: center; }
+.rubrique_mineraux .filtres { margin-bottom: 1em; }
 .rubrique_mineraux .filtres div { padding: 0.5em 0; }
 .rubrique_mineraux .filtre_desc { position: relative; }
 .rubrique_mineraux .filtre_desc .filtre_close { position: absolute; right: 0; top: 0.75em; }
