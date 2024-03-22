@@ -27,10 +27,10 @@
 		<B_articles>
 		<div class="liste articles annexes">
 			<h2><:expoos:titre_annexes:></h2>
-			<ul class="liste-items">
+			<ul class="cards grid-[(#COLONNES|sinon{3}|moins{1})]-small-[(#COLONNES|sinon{3}|moins{1}|div{2}|intval)] has-gutter-l">
 				<BOUCLE_articles(ARTICLES){id_rubrique?}{par num titre, titre}{annexe=on}>
-				<li class="item">
-					<a href="#URL_ARTICLE">#TITRE</a>
+				<li class="card rectangle">
+					<INCLURE{fond=inclure/resume/article-rectangle,id_article,masquer_pastilles=oui,recadre=+}>
 				</li>
 				</BOUCLE_articles>
 			</ul>
