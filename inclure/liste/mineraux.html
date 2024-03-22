@@ -11,24 +11,6 @@
 	point=non,
 	zoom_wheel=non,
 	fullscreen=oui}>
-<script type="text/javascript">
-	;(function($){
-		$('#map_expo').on('load', function(){
-			// pictos perso pour les markers
-			this.map.setGeoJsonFeatureIcon = function(feature, layer) {
-				layer.setIcon(L.divIcon({ html: '<div><span></span></div>', className: 'marker-dot notext', iconSize: new L.Point(40, 40) }));
-			}
-		});
-		$('#map_expo').on('ready', function(){
-			var map = this.map;
-			// charger le geojson des points
-			var geojson = <INCLURE{fond=gis_json,id_rubrique,objets=mineraux,categorie,cats=#GET{cats}}>;
-			map.parseGeoJson(geojson);
-			// centrer la carte sur les bounds du json
-			map.fitBounds(L.geoJSON(geojson).getBounds()[,(#ENV{id_mot}|ou{#ENV{categorie}}|oui){maxZoom: 14}]);
-		});
-})(jQuery);
-</script>
 
 <div class="filtres grid-3-small-1 has-gutter-l">
 	<BOUCLE_cat_mere(RUBRIQUES){id_parent=#CONFIG{expoos/secteur_categories,42}}{id_rubrique!=#CONFIG{expoos/rubrique_roches,144}}{tout}>
@@ -60,17 +42,6 @@
 	</form></div>
 	</BOUCLE_groupes>
 </div>
-[(#REM) fix select2 bug with allow-clear https://github.com/select2/select2/issues/3320#issuecomment-524153140 ]
-<script type="text/javascript">
-	;(function($){
-		$(".select2").on("select2:clear", function (evt) {
-			$(this).on("select2:opening.cancelOpen", function (evt) {
-				evt.preventDefault();
-				$(this).off("select2:opening.cancelOpen");
-			});
-		});
-	})(jQuery);
-</script>
 
 <BOUCLE_groupe(MOTS){id_mot}>
 [<div class="filtre_desc">
@@ -110,3 +81,29 @@
 [(#SET{filtre,#INFO_TITRE{mot,#ENV{id_mot}}})]]
 <p class="aucun-resultat"><:expoos:info_aucun_mineral{filtre=#GET{filtre}}:></p>
 <//B_articles>
+
+<script type="text/javascript">
+	;(function($){
+		$('#map_expo').on('load', function(){
+			// pictos perso pour les markers
+			this.map.setGeoJsonFeatureIcon = function(feature, layer) {
+				layer.setIcon(L.divIcon({ html: '<div><span></span></div>', className: 'marker-dot notext', iconSize: new L.Point(40, 40) }));
+			}
+		});
+		$('#map_expo').on('ready', function(){
+			var map = this.map;
+			// charger le geojson des points
+			var geojson = <INCLURE{fond=gis_json,id_rubrique,objets=mineraux,categorie,cats=#GET{cats}}>;
+			map.parseGeoJson(geojson);
+			// centrer la carte sur les bounds du json
+			map.fitBounds(L.geoJSON(geojson).getBounds()[,(#ENV{id_mot}|ou{#ENV{categorie}}|oui){maxZoom: 14}]);
+		});
+		[(#REM) fix select2 bug with allow-clear https://github.com/select2/select2/issues/3320#issuecomment-524153140 ]
+		$(".select2").on("select2:clear", function (evt) {
+			$(this).on("select2:opening.cancelOpen", function (evt) {
+				evt.preventDefault();
+				$(this).off("select2:opening.cancelOpen");
+			});
+		});
+})(jQuery);
+</script>
