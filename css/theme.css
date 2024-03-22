@@ -223,6 +223,9 @@ a:focus,a:hover,a:active { color: #005177; text-decoration: underline; backgroun
 .rubrique_mineraux .leaflet-popup-tip { background: #f2f2f2; }
 .rubrique_mineraux .filtres { padding: 1em 0; }
 .rubrique_mineraux .filtres div { padding: 0.5em 0; }
+.rubrique_mineraux .filtre_desc { position: relative; }
+.rubrique_mineraux .filtre_desc .filtre_close { position: absolute; right: 0; top: 0.75em; }
+.rubrique_mineraux .filtre_desc .filtre_close:hover { cursor: pointer; }
 .rubrique_mineraux .cards { margin-top: 1em; }
 .rubrique_mineraux .card { border-radius: 0.25em; background: #f2f2f2; box-shadow: 0 0 0 1px rgba(0,0,0,0.1); text-align: center; }
 .rubrique_mineraux .card .banner { margin: 0; }

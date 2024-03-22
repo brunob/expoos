@@ -105,5 +105,11 @@
 				$(this).off("select2:opening.cancelOpen");
 			});
 		});
+		$('.filtre_desc')
+			.append("[(#CHEMIN_IMAGE{fermer-16.png}|balise_img{'',filtre_close})]")
+			.on('click',function(){
+				[(#REM)$(this).fadeOut('fast', function() { $(this).remove(); });]
+				ajaxReload('liste',{args:{id_mot: undefined, categorie: undefined},history:true});
+			});
 })(jQuery);
 </script>
