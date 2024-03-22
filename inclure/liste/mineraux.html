@@ -102,6 +102,9 @@
 	</nav>]
 	]
 </B_articles>
-[(#SET{message_aucun, [(#ENV{message_aucun}|is_null|?{<:info_aucun_article:>, #ENV{message_aucun}})]})]
-[<p class="aucun-resultat">(#GET{message_aucun})</p>]
+[(#ENV{categorie}|oui)
+[(#SET{filtre,#INFO_TITRE{rubrique,#ENV{categorie}}})]]
+[(#ENV{id_mot}|oui)
+[(#SET{filtre,#INFO_TITRE{mot,#ENV{id_mot}}})]]
+<p class="aucun-resultat"><:expoos:info_aucun_mineral{filtre=#GET{filtre}}:></p>
 <//B_articles>

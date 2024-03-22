@@ -15,6 +15,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	'footer_extras' => 'Financeurs',
 
+	'info_aucun_mineral' => 'Aucun échantillon associé à @filtre@',
+
 	'titre_annexes' => 'À propos',
 	'titre_geoloc' => 'Géolocalisation',
 	'titre_point_annexe' => 'Géolocalisation de la carrière',
