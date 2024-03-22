@@ -2,7 +2,9 @@
 [(#SET{cats,#ARRAY})]
 <BOUCLE_cats(RUBRIQUES){id_secteur=#CONFIG{expoos/secteur_categories,42}}{id_mot}{tout}>
 #SET_PUSH{cats,#ID_RUBRIQUE}
-</BOUCLE_cats>]
+</BOUCLE_cats>
+[(#SET{cats,#CONFIG{expoos/secteur_categories,42}})]
+<//B_cats>]
 
 <INCLURE{fond=modeles/carte_gis,
 	id_map=_expo,
