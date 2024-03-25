@@ -17,6 +17,11 @@
 		</BOUCLE_origine>
 
 		<div class="liste articles">
+			<INCLURE{fond=modeles/carte_gis,
+				id_map=_expo,
+				point=non,
+				zoom_wheel=non,
+				fullscreen=oui}>
 			<INCLURE{fond=inclure/liste/mineraux,env,ajax=liste,
 				class_liste=#GET{class},
 				resume=#GET{resume},

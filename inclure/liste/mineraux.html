@@ -6,12 +6,6 @@
 [(#SET{cats,#CONFIG{expoos/secteur_categories,42}})]
 <//B_cats>]
 
-<INCLURE{fond=modeles/carte_gis,
-	id_map=_expo,
-	point=non,
-	zoom_wheel=non,
-	fullscreen=oui}>
-
 <div class="filtres_toggle"><a href="#" class="button"><:expoos:titre_filtres:></a></div>
 <div class="filtres grid-3-small-1 has-gutter-l">
 	<BOUCLE_cat_mere(RUBRIQUES){id_parent=#CONFIG{expoos/secteur_categories,42}}{id_rubrique!=#CONFIG{expoos/rubrique_roches,144}}{tout}>
@@ -91,14 +85,23 @@
 				layer.setIcon(L.divIcon({ html: '<div><span></span></div>', className: 'marker-dot notext', iconSize: new L.Point(40, 40) }));
 			}
 		});
-		$('#map_expo').on('ready', function(){
-			var map = this.map;
+		function map_load_json() {
+			var map = $('#map_expo').get(0).map;
 			// charger le geojson des points
 			var geojson = <INCLURE{fond=gis_json,id_rubrique,objets=mineraux,categorie,cats=#GET{cats}}>;
+			// retirer les markers de la carte
+			map.removeAllMarkers();
+			// ajouter le nouveau contenu du geojson
 			map.parseGeoJson(geojson);
-			// centrer la carte sur les bounds du json
-			map.fitBounds(L.geoJSON(geojson).getBounds()[,(#ENV{id_mot}|ou{#ENV{categorie}}|oui){maxZoom: 14}]);
+			// si le json n'est pas vide, centrer la carte sur les bounds du json
+			if (geojson.features && geojson.features.length > 0) {
+				map.fitBounds(L.geoJSON(geojson).getBounds()[,(#ENV{id_mot}|ou{#ENV{categorie}}|oui){maxZoom: 14}]);
+			}
+		}
+		$('#map_expo').on('ready', function(){
+			map_load_json();
 		});
+		onAjaxLoad(map_load_json);
 		[(#REM) fix select2 bug with allow-clear https://github.com/select2/select2/issues/3320#issuecomment-524153140 ]
 		$(".select2").on("select2:clear", function (evt) {
 			$(this).on("select2:opening.cancelOpen", function (evt) {
