@@ -1,6 +1,6 @@
 #HTTP_HEADER{Content-Type:text/plain; charset:#CHARSET}
 [(#REM) Tous les articles et les sous-rubriques de la branche liée à un mot, et de ses traductions
-]<BOUCLE_rub(RUBRIQUES){id_mot}><BOUCLE_trads(RUBRIQUES){traduction}><BOUCLE_rubriques(RUBRIQUES){branche #ID_RUBRIQUE}>
+]<BOUCLE_rub(RUBRIQUES){id_mot}{composition!=mineraux}><BOUCLE_trads(RUBRIQUES){traduction}><BOUCLE_rubriques(RUBRIQUES){branche #ID_RUBRIQUE}>
 #URL_RUBRIQUE</BOUCLE_rubriques>
 <BOUCLE_articles(ARTICLES){branche #ID_RUBRIQUE}>
 #URL_ARTICLE</BOUCLE_articles></BOUCLE_trads></BOUCLE_rub>

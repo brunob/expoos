@@ -8,9 +8,10 @@
 			|inserer_attribut{loading,lazy}
 			|sinon{#CHEMIN{images/nologo.svg}|balise_svg{'',default,297}})]
 		<strong class="h3 entry-title" style="[background-color: (#ENV{couleur}|sinon{#bdbdbd}|couleur_transaprence); ][color: #(#ENV{couleur}|sinon{#bdbdbd}|substr{1}|couleur_extreme|couleur_inverser);]">#TITRE</strong>
+		[(#COMPOSITION|!={mineraux}|oui)
 		<div class="actions">
 			[(#BOUTON_TELECHARGER_OFFLINE{rubrique,#ID_RUBRIQUE})]
-		</div>
+		</div>]
 	</article>
 </a>
 </BOUCLE_resume_rubrique>
