@@ -25,7 +25,7 @@
 	</form></div>
 	</B_sous_rubriques>
 	</BOUCLE_cat_mere>
-	<BOUCLE_groupes(GROUPES_MOTS){id_groupe !IN #CONFIG{expoos/mots_types,#LISTE{1,2,3}}}{par num titre}>	
+	<BOUCLE_groupes(GROUPES_MOTS){id_groupe !IN #CONFIG{expoos/mots_types,#LISTE{1,2,3}}}{par num titre}>
 	<div><form action="#URL_RUBRIQUE{#ENV{id_rubrique}}" method="get">
 	[(#URL_RUBRIQUE{#ENV{id_rubrique}}|form_hidden)]
 	<select name="id_mot" style="width: 100%" class="select2" data-placeholder--id="" data-placeholder--text="[(#TITRE|attribut_html)]" data-allow-clear="true" onchange="ajaxReload('liste',{args:{id_mot:this.value ? this.value : undefined, categorie: undefined},history:true})">
